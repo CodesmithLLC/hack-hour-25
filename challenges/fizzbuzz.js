@@ -17,7 +17,20 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
+	const arr = [...Array(num + 1).keys()].slice(1);
+	const retArr = arr.reduce((total, current) => {
+		if (current % 3 === 0 && current % 5 === 0) {
+			total.push('fizzbuzz'); 
+		} else if (current % 3 === 0) {
+			total.push('fizz'); 
+		} else if (current % 5 === 0) {
+			total.push('buzz'); 
+		} else {
+			total.push(current); 
+		}
+		return total;
+	}, []);
+	return retArr; 
 }
 
 module.exports = fizzbuzz;
