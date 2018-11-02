@@ -14,7 +14,6 @@
 */
 
 function drawStairs(n) {
-    let total = n
     let air = Array(n).fill(' ').join('')
     let wood = Array(n).fill('*').join('')
     while (n) {
