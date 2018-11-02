@@ -17,13 +17,13 @@ function drawStairs(n) {
     let newStr = "";
     for (let i = 1; i <= n; i++) {
         for (let k = n - i; k >= 1; k--) {
-            newStr += ""
+            newStr += " "
         }
         for (let j = 1; j <= i; j++) {
             newStr += "*"
         }
         console.log(newStr)
-        newStr = ""
+        newStr = "";
     }
 }
 console.log(drawStairs(6))
