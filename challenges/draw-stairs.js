@@ -14,10 +14,9 @@
 */
 
 function drawStairs(n) {
-    let air = Array(n).fill(' ').join('')
-    let wood = Array(n).fill('*').join('')
+    let step = Array(n).fill(' ').join('')
     while (n) {
-        let step = air.substr(0,n-1).concat(wood.substr(n-1))
+        step = step.substr(1).concat("*")
         console.log(step)
         n -= 1
     }
