@@ -14,8 +14,15 @@
 */
 
 function drawStairs(n) {
-
+  const stairArray = Array(n).fill(' ');
+  const stair = '*';
+  for (let i = stairArray.length; i > 0; i -= 1) {
+    stairArray[i] = stair;
+    console.log(stairArray.join(''));
+  }
 }
 
 
 module.exports = drawStairs;
+
+// drawStairs(6);
