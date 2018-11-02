@@ -30,24 +30,38 @@
 function fizzbuzz(num) {
   const numArr = [];
   let counter = 1;
+  let result = [];
   while (counter < num+1) {
     numArr.push(counter);
     counter++;
   }
   //console.log(numArr);
-  for (let i = 0; i < numArr.length; i++){
-    if (numArr[i] % 3 === 0 && numArr[i] % 5 === 0){
-      numArr[i] = 'fizzbuzz'
+  //solution 1 - for loop
+  // for (let i = 0; i < numArr.length; i++){
+  //   if (numArr[i] % 3 === 0 && numArr[i] % 5 === 0){
+  //     numArr[i] = 'fizzbuzz'
+  //   } 
+  //   if (numArr[i] % 3 === 0){
+  //     numArr[i] = 'fizz'
+  //   }
+  //   if (numArr[i] % 5 === 0){
+  //     numArr[i] = 'buzz'
+  //   }
+  // }
+  // forEach
+  numArr.forEach(el => {
+    if (el % 3 === 0 && el % 5 === 0){
+      el = 'fizzbuzz';
+    }
+    if (el % 3 === 0){
+      el = 'fizz';
     } 
-    if (numArr[i] % 3 === 0){
-      numArr[i] = 'fizz'
+    if (el % 5 === 0){
+      el = 'buzz';
     }
-    if (numArr[i] % 5 === 0){
-      numArr[i] = 'buzz'
-    }
-  }
-
-  return numArr;
+    result.push(el);
+  })
+  return result;
 }
 
 console.log(fizzbuzz(16));
