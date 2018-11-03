@@ -25,4 +25,4 @@ function drawStairs(n) {
 
 module.exports = drawStairs;
 
-// drawStairs(6);
+drawStairs(6);
