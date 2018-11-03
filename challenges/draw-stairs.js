@@ -14,8 +14,16 @@
 */
 
 function drawStairs(n) {
+    let str = '';
+    for (let row = n; row >=1; row--) {
+      
+      
+      str+='(';
+      console.log(str);
 
-}
+    }
+  }
 
+drawStairs(6);
 
 module.exports = drawStairs;
