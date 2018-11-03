@@ -39,5 +39,5 @@ function modemean(array) {
   })
   return mean === mode
 }
-
+// d
 module.exports = modemean;
