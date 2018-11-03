@@ -9,7 +9,6 @@
  *
  */
 
-
 function modemean(array) {
   // input: array of numbers
   // output: boolean (checking if mode and mean are equivalent)
@@ -55,4 +54,5 @@ function modemean(array) {
 }
 
 console.log(modemean([0, 0, 1, 1, 1, 2, 2]));
+
 module.exports = modemean;
