@@ -14,6 +14,7 @@
 */
 
 function drawStairs(n) {
+  if (n < 1 || n > 100) return;
   const stairArray = Array(n).fill(' ');
   const stair = '*';
   for (let i = stairArray.length; i > 0; i -= 1) {
@@ -22,7 +23,6 @@ function drawStairs(n) {
   }
 }
 
+drawStairs(20);
 
 module.exports = drawStairs;
-
-drawStairs(6);
