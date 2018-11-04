@@ -35,10 +35,16 @@ function modemean(array) {
   arMean = Math.floor(arMean/array.length);
 
   arMode = modeScratchpad.reduce((accum, elem, index) => {
-    if (elem === accum) accum = Math.max(accum, elem);
-    if (elem > accum) accum = index;
+    if (elem === accum[0]){
+       accum[1] = Math.max(accum[1], index);
+    }
+
+    if (elem > accum[0]){
+      accum[0] = elem;
+      accum[1] = index;
+    }
     return accum;
-  }, 0);
+  }, [0,0])[1];
 
   // compare mode and mean if equals return true  else false
   return (arMode === arMean);
