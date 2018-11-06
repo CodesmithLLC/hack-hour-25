@@ -30,18 +30,28 @@ function modemean(array) {
   }, numObj)
 
   //mode 
-  let mode;
-  for (let key in sortedObj){
-    let valueArr =Object.values(sortedObj)
-    mode = Math.max.apply(null, valueArr);
-  }
+  const valueArr = Object.values(sortedObj);
+  const keyValueArr = Object.entries(sortedObj);
+  let modeValue = sortedObj.reduce((acc, el, i) => {
+    
+  })
 
-  return mean === mode
+  // let mode;
+  // let highestCount; 
+
+  // for (let key in sortedObj){
+  //   let valueArr =Object.values(sortedObj)
+  //   // highestCount = Math.max.apply(null, valueArr);
+  // }
+  // // return sortedObj;
+  
+
+  //return mean === mode
 
 
   // console.log(numObj);
 }
 
-// console.log(modemean([13, 18, 13, 14, 13, 16, 14, 21, 13]))
+console.log(modemean([13, 18, 13, 14, 13, 16, 14, 21, 13]))
 
 module.exports = modemean;
