@@ -11,8 +11,10 @@
 
 
 function modemean(array) {
+  // mean
   const total = array.reduce((a, b) => a + b);
   const mean = Math.floor(total / array.length);
+
   const storage = {};
   // iterate through the array, get save as key value pair to obj.  key = numer and val = amt of times called.  
   for (let i = 0; i < array.length; i += 1) {
@@ -37,5 +39,5 @@ function modemean(array) {
   return mean === maxMode;
 }
 
-console.log(modemean([1, 2, 3, 4, 3, 4]));
+console.log(modemean([1, 2, 3, 3, 4, 5]));
 module.exports = modemean;
