@@ -42,19 +42,25 @@ function kthToLastNode(k, head) {
   // run the recursive function
   traverse(currentNode);
   // go to the last index of the array, go back k number of nodes and return that node's value
+  // check to see if k is larger than the array
+  if (k > memory.length) {
+    return 'ERROR! k is too large, linked list is shorter than k!'
+  }
   return memory[memory.length - k];
 }
 
-// const a = new Node('A');
-// const b = new Node('B');
-// const c = new Node('C');
-// const d = new Node('D');
-// const e = new Node('E');
-// a.next = b;
-// b.next = c;
-// c.next = d;
-// d.next = e;
-// console.log(kthToLastNode(3, a));
+const a = new Node('A');
+const b = new Node('B');
+const c = new Node('C');
+const d = new Node('D');
+const e = new Node('E');
+a.next = b;
+b.next = c;
+c.next = d;
+d.next = e;
+console.log(kthToLastNode(3, a));
+console.log(kthToLastNode(6, a));
+
 
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
