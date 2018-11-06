@@ -23,6 +23,26 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
 
+  // Store Linked List in Object()
+  let linkListStorage = {};
+  let linkListCounter = 0;    // Keep a counter for total number of nodes
+  let currentNode = head;
+
+  // add head before entering while
+  linkListStorage[linkListCounter] = currentNode;
+  linkListCounter += 1;
+
+  while(currentNode.next !== null && currentNode.next !== undefined) {
+    // Set key to num where head = 0 and increment by one for each new node added
+    currentNode = currentNode.next;
+    linkListStorage[linkListCounter] = currentNode;
+    linkListCounter += 1;
+
+  }
+
+  // Once tail identified use total number of nodes minus k to access node Object
+  // which will be returned
+  return linkListStorage[(linkListCounter - k)].value;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
