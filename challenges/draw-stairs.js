@@ -20,22 +20,13 @@
     //
 
 function drawStairs(n) {
-    const arr = [];
-    let stairs = '*';
-    let el
-    for (let i = 0; i < n+1; i++){
-            el = stairs.repeat();
-            arr.push(el);
-    
+    if (isNaN(n) || n < 0 || n > 100) return;
+    for (let i = 1; i <= n; i++){
+        let spaces = ' '.repeat(n-i);
+        let star = '*'.repeat(n);
     }
-    return arr.join('\n');
-//     const arr = Array(n).fill(' ');
-//     let stairs = '*';
-//     for (let i = arr.length; i >= 0; i-1){
-//         arr[i] = stairs
-//         console.log(arr[i]);
-//     }
-// }
+    console.log(spaces+star);
+}
 
 console.log(drawStairs(10));
 
