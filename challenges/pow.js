@@ -19,7 +19,8 @@ function pow(base, power, result = base) {
   }
 }
 
-// console.log('math.pow ' + Math.pow(2, 2));
+
+// console.log('math.pow ' + Math.pow(2, 3));
 
 // console.log(pow(2, 2)); //4;
 // console.log(pow(2, 3));//8

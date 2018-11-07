@@ -31,6 +31,7 @@ function kthToLastNode(k, head) {
     tracker += 1;
     obj[tracker] = curr
   }
+  console.log(obj);
 
   let targetPosition = tracker - k;
   return obj[targetPosition].value;
