@@ -33,7 +33,6 @@ function kthToLastNode(k, head) {
   // let headNext = head.next;
   let current = head;
   let counter = 0;
-
   // create object to track key number and whole node as value
   const trackerObj = {};
 
