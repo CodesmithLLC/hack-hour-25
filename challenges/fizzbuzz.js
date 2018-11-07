@@ -16,19 +16,33 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {
-    const output = [];
-    for(let i = 1; i <= num; i++) {
-        if(i % 3 === 0 && i % 5 === 0)
-            output.push('fizzbuzz')
-        else if(i % 3 === 0)
-            output.push('fizz')
-        else if(i % 5 === 0)
-            output.push('buzz')
-        else 
-            output.push(i);
-    }
-    return output;
+// Solving fizzbuzz with a for loop
+// function fizzbuzz(num) {
+//   const output = [];
+//   for (let i = 1; i <= num; i += 1) {
+//     if (i % 3 === 0 && i % 5 === 0) {
+//       output.push('fizzbuzz');
+//     } else if (i % 3 === 0) {
+//       output.push('fizz');
+//     } else if (i % 5 === 0) {
+//       output.push('buzz');
+//     } else output.push(i);
+//   }
+//   return output;
+// }
+
+// Solving fizzbuzz recursively
+function fizzbuzz(num, output = []) {
+  if (num === 0) return output;
+  if (num % 3 === 0 && num % 5 === 0) {
+    output.unshift('fizzbuzz');
+  } else if (num % 3 === 0) {
+    output.unshift('fizz');
+  } else if (num % 5 === 0) {
+    output.unshift('buzz');
+  } else output.unshift(num);
+  
+  return fizzbuzz(--num, output);
 }
 
 console.log(fizzbuzz(16));
