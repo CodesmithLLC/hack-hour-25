@@ -4,6 +4,8 @@ base and y is given as the power.
  */
 
 function pow(base, power) {
+  // guard clause --> if base is less than 1, return 1
+  if (power < 1) return 1;
   // base case --> if power is equal to one, return base
   if (power === 1) return base;
   // otherwise, return base * recursive call to pow passed base and pow - 1
