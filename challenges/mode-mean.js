@@ -15,15 +15,17 @@ function modemean(array) {
   const total = array.reduce((a, b) => a + b);
   const mean = Math.floor(total / array.length);
 
-  const storage = {};
   // iterate through the array, get save as key value pair to obj.  key = numer and val = amt of times called.  
-  for (let i = 0; i < array.length; i += 1) {
-    if (storage[array[i]]) {
-      storage[array[i]] += 1;
+
+  const storage = array.reduce((accumulator, current) => {
+    if (accumulator[current]) {
+      accumulator[current] += 1;
     } else {
-      storage[array[i]] = 1;
+      accumulator[current] = 1;
     }
-  }
+    return accumulator;
+  }, {});
+  console.log(storage);
   //find the max(s) of the values 
   const numCounts = Object.values(storage);
   const modeCount = Math.max(...numCounts);
