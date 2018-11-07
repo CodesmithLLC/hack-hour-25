@@ -22,16 +22,15 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head, array = []) {
-  node = head;
-  if (node.next !== null) { 
+  const node = head;
+  if (node.next !== null) {
     array.push(node.value);
     console.log(array);
     return kthToLastNode(k, node.next, array);
-  } else {
-    array.push(node.value);
-    console.log(array);
-    return array[array.length - k];
   }
+  array.push(node.value);
+  console.log(array);
+  return array[array.length - k];
 }
 
 const a = new Node('A');
