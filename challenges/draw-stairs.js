@@ -23,6 +23,19 @@ function drawStairs(n) {
   }
 }
 
-drawStairs(20);
+// function drawStairs(n) {
+//   if (n < 1 || n > 100) return;
+//   let returnString = ''
+//   const stairArray = Array(n).fill(' ');
+//   const stair = '*';
+//   for (let i = stairArray.length; i > 0; i -= 1) {
+//     stairArray[i] = stair;
+//     // console.log(stairArray.join(''));
+//     returnString += stairArray.join('') + '\n';
+//   }
+//   console.log(returnString);
+// }
+
+drawStairs(6);
 
 module.exports = drawStairs;
