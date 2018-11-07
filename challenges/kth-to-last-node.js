@@ -25,12 +25,10 @@ function kthToLastNode(k, head, array = []) {
   const node = head;
   if (node.next !== null) {
     array.push(node.value);
-    console.log(array);
     return kthToLastNode(k, node.next, array);
   }
   array.push(node.value);
-  console.log(array);
-  return array[array.length - k];
+  return (array[array.length - k]) ? (array[array.length - k]) : undefined;
 }
 
 const a = new Node('A');
@@ -45,6 +43,7 @@ c.next = d;
 d.next = e;
 
 console.log(kthToLastNode(2, a)); // returns 'D'
-console.log(kthToLastNode(3, a)); // returns 'D'
+console.log(kthToLastNode(3, a)); // returns 'C'
+console.log(kthToLastNode(12, a)); // returns undefined
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
