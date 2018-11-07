@@ -22,16 +22,30 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  const values = [];
-  let thisNode = head;
-  values.push(thisNode.value);
-  while (thisNode.next) {
-    thisNode = thisNode.next;
-    values.push(thisNode.value);
+  let lead = head;
+  let follow = head;
+  let leadIndex = 0;
+  while (lead) {
+    if (leadIndex <= k) {
+      follow = follow.next;
+    }
+    lead = lead.next;
+    leadIndex += 1;
   }
-  console.log(values);
-  return values[values.length - k];
+  return follow.value;
 }
+
+// function kthToLastNode(k, head) {
+//   const values = [];
+//   let thisNode = head;
+//   values.push(thisNode.value);
+//   while (thisNode.next) {
+//     thisNode = thisNode.next;
+//     values.push(thisNode.value);
+//   }
+//   console.log(values);
+//   return values[values.length - k];
+// }
 
 const a = new Node('A');
 const b = new Node('B');
