@@ -14,7 +14,22 @@
  */
 
 function reverseInPlace(array) {
-
+    const len = array.length;
+    const middle = (array.length % 2 === 0) ? array.length / 2 : Math.ceil(array.length / 2);
+    let tracker = 1;
+    for (let i = 0; i < middle; i++) {
+        let first = array[i];
+        let last = array[len - tracker];
+        array[i] = last;
+        array[len - tracker] = first;
+        tracker++;
+    }
+    return array;
 }
+
+const testArray1 = [1, 2, 3, 4, 5];
+const testArray2 = [1, 2, 3, 4, 5, 6];
+console.log(reverseInPlace(testArray1)); // Should equal [5, 4, 3, 2, 1];
+console.log(reverseInPlace(testArray2)); // Should equal [6, 5, 4, 3, 2, 1];
 
 module.exports = reverseInPlace;
