@@ -14,6 +14,16 @@
  */
 
 function reverseInPlace(array) {
+	//edge case for checking if array is an actual array
+  if (!(array instanceof Array)) {return undefined}
+	let threshold = Math.floor(array.length/2);
+
+	for (let i = 0; i < threshold; i ++) {
+		let temp = array[i];
+		array[i] = array[array.length - 1 -i];
+		array[array.length - 1 -i] = temp;
+	}
+	return array
 
 }
 
