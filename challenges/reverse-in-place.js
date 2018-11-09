@@ -14,7 +14,18 @@
  */
 
 function reverseInPlace(array) {
-
+  let midPoint = Math.floor(array.length / 2);
+  for (let i = 0; i < midPoint; i += 1){
+    let start = array[i]; 
+    let end = array[array.length - 1 - i];
+    array[i] = end;
+    array[array.length - 1 - i] = start;
+  }
+  return array;
 }
+
+
+// console.log(reverseInPlace([1, 2, 3, 4]));
+
 
 module.exports = reverseInPlace;
