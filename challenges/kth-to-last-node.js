@@ -49,18 +49,18 @@ function kthToLastNode(k, head) {
   return memory[memory.length - k];
 }
 
-const a = new Node('A');
-const b = new Node('B');
-const c = new Node('C');
-const d = new Node('D');
-const e = new Node('E');
-a.next = b;
-b.next = c;
-c.next = d;
-d.next = e;
-console.log(kthToLastNode(3, a));
-console.log(kthToLastNode(6, a));
+// const a = new Node('A');
+// const b = new Node('B');
+// const c = new Node('C');
+// const d = new Node('D');
+// const e = new Node('E');
+// a.next = b;
+// b.next = c;
+// c.next = d;
+// d.next = e;
+// console.log(kthToLastNode(3, a));
+// console.log(kthToLastNode(6, a));
 
-
+// another solution is to have pointers that move and then return based on the ending and distance between two pointers
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
