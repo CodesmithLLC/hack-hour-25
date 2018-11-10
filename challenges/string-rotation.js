@@ -16,7 +16,25 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+  // s1 and s2 are not same length then return false
+  if (s1.length !== s2.length) return false;
+  // the index where the string rotates
+  let rotationIndex = 0;
+  let subStr = "";
+  // iterate through the second string
+  for (let i = 0; i < s2.length; i += 1) {
+    // if subStr is substring of s1 then append the next char of s2 to subStr
+    if (isSubstring(s1, subStr)) subStr += s2[i];
+    else {
+      // otherwise, set rotationIndex to current index and break out of loop
+      rotationIndex = i
+      break;
+    }
+  }
+  // get the other rotated half of s1 
+  subStr = s2.split("").slice(rotationIndex - 1).join("");
+  // return boolean whether or not subStr is a substring of s1
+  return isSubstring(s1, subStr);
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
