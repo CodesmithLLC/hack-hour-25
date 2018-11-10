@@ -25,14 +25,28 @@ function reverseInPlace(array) {
     let head = 0;
     let tail = array.length - 1;
 
+
     while (head < tail) {
-        array[head] = array[tail];
-        array[tail] = array[head]
-        head += 1;
-        tail -= 1;
+
+        let temp = array[head];
+
+        array[head++] = array[tail]
+        array[tail--] = temp;
+
+        // console.log(array[tail])
+
     }
     return array;
 
+    // for (let i = 0, j = array.length - 1; i < j; i += 1, j -= 1) {
+    //     let temp = array[i];
+    //     let tempJ = array[j];
+    //     console.log(tempJ)
+    //     temp = tempJ;
+    //     tempJ = temp;
+
+    // }
+    // return array;
 }
 
 module.exports = reverseInPlace;
