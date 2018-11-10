@@ -30,14 +30,23 @@ function kthToLastNode(k, head) {
   //  create a pointer to keep track of the currentNode
   // delcare a count to track the index of the node
   // iterate over the nodes check if the head exist
-  // 
+  // if true: reassign node to the next node 
+  // increment count by 1
+  // outside the loop: check if k is equal to the 
+
+  let node = head;
+  let follow = head;
+  let count = 0;
+
+  while (node !== null) {
+
+    if (count === k) {
+      follow = head.value
+    }
+    return value;
 
 
-
-
-
-
-
+  }
 
 
 }
