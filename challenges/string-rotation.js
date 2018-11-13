@@ -19,12 +19,12 @@ function isSubstring(s1, s2) {
 function stringRotation(s1, s2) {
   let firstLetter = s2.charAt(0);
   if (!isSubstring(s1, firstLetter) && s1 !== s2) {
-    return false
+    return false;
   }
   for (let i = 0; i < s1.length; i += 1) {
     if (s1[i] === firstLetter) {
       let slice = s1.slice(i);
-      slice += s1.slice(0,i);
+      slice += s1.slice(0, i);
       if (slice === s2) return true;
     }
   }
