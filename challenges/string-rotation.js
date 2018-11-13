@@ -10,7 +10,9 @@
  *              stringRotation("hello", "he") -> false
  *              stringRotation("hello", "ollhe") -> false (not a rotation, just an anagram)
  */
-
+function isSubstring(s1, s2) {
+  return s1.indexOf(s2) >= 0;
+}
 
 function stringRotation(s1, s2) {
   //edge case: check if both strings are of type string
