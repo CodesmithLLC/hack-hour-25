@@ -31,12 +31,6 @@ function balancedParens(input){
       tracker[input.charAt(i)] = tracker[input.charAt(i)] + 1
     }
   }
-  console.log('(' + tracker['('])
-  console.log(')' + tracker[')'])
-  console.log('{' + tracker['{'])
-  console.log('}' + tracker['}'])
-  console.log('[' + tracker['['])
-  console.log(']' + tracker[']'])
   return (tracker['('] === tracker[')'] && tracker['{'] === tracker['}'] && tracker['['] === tracker[']'])
 }
 
