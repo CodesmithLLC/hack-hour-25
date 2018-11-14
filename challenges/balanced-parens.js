@@ -24,6 +24,7 @@
  *
  */
 
+<<<<<<< HEAD
 function balancedParens(input) {
   let newString = '';
   const characters = ['[', ']', '{', '}', '(', ')'];
@@ -50,3 +51,10 @@ function balancedParens(input) {
 
 
 module.exports = balancedParens;
+=======
+function balancedParens(input){
+
+}
+
+module.exports = balancedParens;
+>>>>>>> b4928232f9dcf5c0cf25988c9b87bb1a1fade970
