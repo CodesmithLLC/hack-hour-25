@@ -19,6 +19,24 @@
 
 function romanNumeral(n) {
 
+	let romanObj = {
+		1: 'I',
+		5: 'V',
+		10: 'X',	
+		50: 'L',
+		100: 'C',
+		500: 'D',
+		1000: 'M'
+	}
+
+	if (romanObj.hasOwnProperty(n.toString())){
+		return romanObj[n];
+
+	}else{
+		//if (n>romanObj[])
+	}
+
 }
 
+console.log(romanNumeral(6))
 module.exports = romanNumeral;
