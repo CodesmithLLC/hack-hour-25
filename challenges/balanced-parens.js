@@ -24,7 +24,7 @@
  *
  */
 
-function balancedParens(input){
+function balancedParens(input) {
   let pars = [];
   let bracks = [];
   let curls = [];
@@ -50,5 +50,7 @@ function balancedParens(input){
   return true;
   
 }
+
+
 
 module.exports = balancedParens;
