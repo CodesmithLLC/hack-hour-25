@@ -25,22 +25,26 @@
  */
 
 function balancedParens (input) {
-  const targets = ['(', '[', '{', ')', ']', '}'];
-  
-  const cleaned = []; 
+  if (typeof input !== 'string') return 'input is not a string';
+  if (input.length % 2 !== 0) return false;
+  const stack = [];
+  const items = {
+    '(' : ')',
+    '[' : ']',
+    '{' : '}'
+  }
 
   for (let i = 0; i < input.length; i++) {
-    if (targets.includes(input[i])) {
-      cleaned.push(input[i]);
+    if (items.hasOwnProperty(input[i])) {
+      stack.push(input[i]);
+      
+    }
+    if ( (stack[stack.length - 1] === '(' && input[i] === ')') || (stack[stack.length - 1] === '[' && input[i] === ']') || (stack[stack.length - 1] === '{' && input[i] === '}') ) {
+    
+      stack.pop();
     }
   }
-  if (cleaned[0] === cleaned[cleaned.length - 1]) {
-    if (!cleaned) return true;
-    if (cleaned[0] !== cleaned[cleaned.length - 1]) return false;
-    return 
-  }
+  return stack.length > 0 ? false : true;
 }
-
-console.log(balancedParens(')(}{]['));
 
 module.exports = balancedParens;
