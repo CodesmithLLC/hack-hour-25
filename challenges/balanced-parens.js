@@ -23,6 +23,13 @@
  *
  *
  */
+
+const braces = {
+  '(': ')',
+  '[': ']',
+  '{': '}',
+};
+
 function isOpenParens(char) {
   const str = '([{';
   if (str.indexOf(char) !== -1) {
@@ -51,31 +58,34 @@ function balancedParens(input) {
 
   // Iterate through string array
   for (let i = 0; i < stringArray.length; i += 1) {
-
-    // Check if character is an opeining paren
+    // Check if character is an opening paren
+    // If true, push paren to stack
     if (isOpenParens(stringArray[i]) === true) {
       stack.push(stringArray[i]);
     }
 
     // Check if character is a closing paren
-    if (isClosedParens(stringArray[i]) === false) {
-      if (stack[stack.length - 1] !== stringArray[i]) {
+    // If true, check against top element in the stack
+    if (isClosedParens(stringArray[i]) === true) {
+      let leftPair = '';
+      let rightPair = stack.pop();
+      for (let key in braces) {
+        if(braces[key] === stringArray[i])
+        leftPair = key;
+      }
+      if ( leftPair !== rightPair) {
         return false;
       }
-      if (stack[stack.length - 1] === stringArray[i]) {
-        stack.pop();
-      } 
     }
-    console.log(stack);
   }
   if (stack.length === 0) return true;
   return false;
 }
 
-// console.log(balancedParens('(')); // returns false
-// console.log(balancedParens('()')); // returns true
+console.log(balancedParens('(')); // returns false
+console.log(balancedParens('()')); // returns true
 console.log(balancedParens(')(')); // returns false
-// console.log(balancedParens('[({})]')); // returns true
-// console.log(balancedParens('[(]{)}')); // returns false
+console.log(balancedParens('[({})]')); // returns true
+console.log(balancedParens('[(]{)}')); // returns false
 
 module.exports = balancedParens;
