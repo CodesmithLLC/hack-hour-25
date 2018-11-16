@@ -10,10 +10,22 @@
 
 function subsetSum(array, target) {
 	let sum = 0;
+	const sumArr = [];
+	const negArr = [];
+
 	array.sort((a, b) => a - b);
+
+	console.log(array);
+
 	for (let i = 0; i < array.length; i += 1) { 
-		sum += array[i];
-		if (array.includes(sum - target)) return true;
+		if (array[i] < 0) negArr.push(array[i]);
+		else if (sum < target) {
+			sum += array[i];
+			sumArr.push(array[i]);
+		} 
+		if (sum === target) return true;
+		if (sumArr.includes(sum - target)) return true;
+		if (array.slice(i).includes(target-sum) || negArr.includes(target-sum)) return true;
 	}
 	return false;
 }
