@@ -9,7 +9,26 @@
  */
 
 function subsetSum(array, target) {
+  let booleanCounter = false;
+  function inner(arr,tar){
+  console.log('top' + arr,tar)
+  if (arr.indexOf(tar) > -1) {
+   booleanCounter = true;
+  }
+
+  arr.forEach(function(el,i, array1) {
+    let arrayT = array1.slice()
+    console.log(arrayT)
+    arrayT.splice(i,1)
+        console.log(arrayT)
+
+    inner(arrayT,target - el)
+  })
+  }
+  inner(array, target);
+  return booleanCounter
 
 }
+
 
 module.exports = subsetSum;
