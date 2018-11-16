@@ -12,11 +12,7 @@ function subsetSum(array, target) {
 	let sum = 0;
 	const sumArr = [];
 	const negArr = [];
-
 	array.sort((a, b) => a - b);
-
-	console.log(array);
-
 	for (let i = 0; i < array.length; i += 1) { 
 		if (array[i] < 0) negArr.push(array[i]);
 		else if (sum < target) {
