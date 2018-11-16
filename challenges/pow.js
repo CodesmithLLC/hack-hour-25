@@ -9,8 +9,8 @@ function pow(base, power) {
     //when power is equal to when 1 return base;
     if(power === 1)return base;
 
-    return pow(base + base, power - 1);
+    return base * pow(base, power - 1);
 }
 
-console.log(pow(2,3))
+console.log(pow(-2,2))
 module.exports = pow;
