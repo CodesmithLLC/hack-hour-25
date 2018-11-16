@@ -9,7 +9,14 @@
  */
 
 function subsetSum(array, target) {
+  // have a for loop to go through the array
+  for (let i = 0; i < array.length; i += 1) {
+    
+  }
+  // a recursive function to check the combinations
+  function recursiveCheck(arr1, arr2) {
 
+  }
 }
 
 module.exports = subsetSum;
