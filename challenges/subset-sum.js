@@ -8,8 +8,27 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
-function subsetSum(array, target) {
-
+function possibleSums(array) {
+  if (array.length === 1) return array;
+  let result = [];
+  result.push(array[0]);
+  const remaining = possibleSums(array.slice(1));
+  for (let i = 0; i < remaining.length; i += 1) {
+    result.push(array[0] + remaining[i]);
+  }
+  result = result.concat(remaining);
+  return result;
 }
+
+console.log(possibleSums([8, -2, 1, -3], 6));
+
+function subsetSum(array, target) {
+  const sumsArr = possibleSums(array);
+  for (let i = 0; i < sumsArr.length - 1; i += 1) {
+    if (target === sumsArr[i]) return true;
+  }
+  return false;
+}
+
 
 module.exports = subsetSum;
