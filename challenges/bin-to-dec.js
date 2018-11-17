@@ -14,7 +14,17 @@
  */
 
 function binToDec(binary) {
-
+  const decimalArr = [256, 128, 64, 32, 16, 8, 4, 2, 1];
+  const reversedDecimalArr = decimalArr.reverse();
+  const tempArr = [];
+  const reversedBinaryArr = binary.split('').reverse();
+  for (let i = 0; i < reversedBinaryArr.length; i +=1 ){
+    if (reversedBinaryArr[i] === '1') tempArr.push(reversedDecimalArr[i]);
+  }
+  return tempArr.reduce((acc, el) => acc += el)
 }
+
+
+// console.log(binToDec('100')) //5;
 
 module.exports = binToDec;
