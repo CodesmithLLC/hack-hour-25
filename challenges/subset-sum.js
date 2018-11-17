@@ -9,21 +9,19 @@
  */
 
 function subsetSum(array, target) {
-  const posArray = array.filter(num => num > 0);
-  const negArray = array.filter(num => num < 0);
-  const highLimit = target;
-  if(negArray.length !== 0){
-    highLimit =  negArray.reduce((a, b) => Math.abs(a) + Math.abs(b))
-  }
-  //check for posArray
-  const lowLimit = posArray.reduce((a,b)=>{a-b},0)
-
-
-  function actualSubsetSum(reNum) {
-    if (reNum > highLimit || reNum < lowLimit) {
-      return false;
+  function innerSubsetSum(sliceArr, num) {
+    if (num === target) {
+      return 1;
     }
+    const newArr = sliceArr.slice(1);
+    if (sliceArr.length > 0) {
+      return (
+        innerSubsetSum(newArr, num + sliceArr[0]) + innerSubsetSum(newArr, num)
+      );
+    }
+    return 0;
   }
+  return (innerSubsetSum(array.slice(), 0)>0);
 }
 
 module.exports = subsetSum;
