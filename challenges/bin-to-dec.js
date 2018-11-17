@@ -28,11 +28,11 @@ function binToDec(binary) {
   return sum;
 }
 
-console.log(binToDec('0')) // -> 0
-console.log(binToDec('11')) // -> 3
-console.log(binToDec('100')) // -> 4
-console.log(binToDec('101')) // -> 5
-console.log(binToDec('0101')) // -> 5
+// console.log(binToDec('0')) // -> 0
+// console.log(binToDec('11')) // -> 3
+// console.log(binToDec('100')) // -> 4
+// console.log(binToDec('101')) // -> 5
+// console.log(binToDec('0101')) // -> 5
 
 function decToBin(decimal) {
   if (decimal === 0) return 0;
@@ -49,10 +49,10 @@ function decToBin(decimal) {
   return result.join('');
 }
 
-console.log(decToBin(0)) // -> '0'
-console.log(decToBin(3)) // -> '11'
-console.log(decToBin(4)) // -> '100'
-console.log(decToBin(5)) // -> '101'
-console.log(decToBin(5)) // -> '0101'
+// console.log(decToBin(0)) // -> '0'
+// console.log(decToBin(3)) // -> '11'
+// console.log(decToBin(4)) // -> '100'
+// console.log(decToBin(5)) // -> '101'
+// console.log(decToBin(5)) // -> '0101'
 
 module.exports = binToDec;
