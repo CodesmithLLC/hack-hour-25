@@ -14,7 +14,8 @@
  */
 
 function binToDec(binary) {
-
+    const l = binary.length - 1;
+    return [...binary].reduce((acc, c, i) => acc + Number(c)*Math.pow(2, l-i), 0)
 }
 
 module.exports = binToDec;
