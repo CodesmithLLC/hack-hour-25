@@ -20,14 +20,10 @@ function possibleSums(array) {
   return result;
 }
 
-console.log(possibleSums([8, -2, 1, -3], 6));
+console.log(subsetSum([3, 7, 4, 2], 13));
 
 function subsetSum(array, target) {
-  const sumsArr = possibleSums(array);
-  for (let i = 0; i < sumsArr.length - 1; i += 1) {
-    if (target === sumsArr[i]) return true;
-  }
-  return false;
+  return array.length > 0 ? possibleSums(array).includes(target) : false;
 }
 
 

@@ -16,8 +16,25 @@
  *      1000  ->    M
  * 
  */
+function romanNumeral(n) {
+  const pairs = [1000, 'M', 900, 'CM', 500, 'D', 400, 'CD', 100, 'C',
+    90, 'XC', 50, 'L', 40, 'XL', 10, 'X', 9, 'IX', 5, 'V', 4, 'IV', 1, 'I'];
+  let result = '';
+  // loop through array, if number is greater than element, add the string to result and subtract number from input
+  for (let i = 0; i < pairs.length; i += 2) {
+    while (pairs[i] <= n) {
+      result += pairs[i + 1];
+      n -= pairs[i];
+    }
+  }
+  return result;
+}
 
-function romanNumeralUnit(n) {
+console.log(romanNumeral(3))
+console.log(romanNumeral(30))
+console.log(romanNumeral(986))
+
+/* function romanNumeralUnit(n) {
   let result = '';
   const romans = {
     1: ['I', 'V', 'X'],
@@ -108,8 +125,6 @@ function romanNumeral(n) {
     
   }
 }
+*/
 
-console.log(romanNumeralUnit(3))
-console.log(romanNumeralTens(30))
-console.log(romanNumeralHundreds(1000))
 module.exports = romanNumeral;
