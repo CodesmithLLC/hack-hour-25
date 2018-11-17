@@ -8,25 +8,17 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
-function subsetSum(array, target) {
-    
-  // Iterate through array storing the first index to a total variable
-  for (let i = 0; i < array.length; i += 1) {
-    // Declare a total variable
-    let total = array[0];
+function subsetSum(array, target, index = 0) {
+  // if the target equals zero, return true
+  if (target === 0) return true;
 
-    // Iterate through array starting at index 1 and adding each element to the total
-    for (let j = 1; j < array.length; j += 1) {
-      total += array[j];
-      
-      // Check of the total matches the target
-      if (total === target) return true;
+  // if the index reaches the length of the array, return false
+  if (index === array.length) return false;
 
-      // Shift the first element of the array and push it to the end
-      array.push(array.shift());
-    }
-  }
-  return false;
+  // make two recursive calls to handle using or not using the current array value
+  // the "use" recursive call subtracts the current array value from the target
+  // the "don't use" recrusive call doesn't subract from the target
+  return subsetSum(array, target - array[index], index + 1) || subsetSum(array, target, index + 1);
 }
 
 console.log(subsetSum([3, 7, 4, 2], 5)); // - > true, 3 + 2 = 5
