@@ -14,7 +14,18 @@
  */
 
 function binToDec(binary) {
-
+	if (binary.length === 0) return null;
+	let decimal = 0;
+	let converter = 2;
+	binary = binary.split('');
+	const ones = binary[binary.length - 1] * 1;
+	binary = binary.slice(0, binary.length - 1);
+	binary = binary.reverse();
+	for (let i = 0; i < binary.length; i += 1) {
+		decimal += (binary[i] * 1) * converter;
+		converter *= 2;
+	}
+	return decimal + ones;
 }
 
 module.exports = binToDec;
