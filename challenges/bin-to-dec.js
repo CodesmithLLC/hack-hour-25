@@ -18,4 +18,14 @@ function binToDec(binary) {
     return [...binary].reduce((acc, c, i) => acc + Number(c)*Math.pow(2, l-i), 0)
 }
 
+function decToBin(dec) {
+    let bin = ''
+    while (dec>0) {
+        bin = '' + dec%2 + bin
+        dec = Math.floor(dec/2)
+    }
+    return bin
+}
+
 module.exports = binToDec;
+module.exports = decToBin;
