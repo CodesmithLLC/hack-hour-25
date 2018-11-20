@@ -15,6 +15,18 @@
 
 function binToDec(binary) {
 
+    //DELCARE A VARIBLE TO STORE THE OUTPUT 
+    let decimal = 0;
+    // LOOP THROUGH THE NUMBERS
+    for (let i = 0; i < binary.length; i += 1) {
+        // GIT THE POWER OF 2 TIMES THE INDEX OF THE ELEMENT AND 
+        // MULTIPLE IT BY THE ELEMENT OF THAT INDEX
+        decimal += 2 ** (binary.length - 1 - i) * binary[i];
+    }
+    // RETURN THE OUTPUT
+    return decimal;
 }
+
+console.log(binToDec('101'));
 
 module.exports = binToDec;
