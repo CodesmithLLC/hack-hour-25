@@ -53,6 +53,6 @@ function decToBin(decimal) {
 // console.log(decToBin(3)) // -> '11'
 // console.log(decToBin(4)) // -> '100'
 // console.log(decToBin(5)) // -> '101'
-// console.log(decToBin(5)) // -> '0101'
+// console.log(decToBin(11)) // -> '0101'
 
 module.exports = binToDec;
