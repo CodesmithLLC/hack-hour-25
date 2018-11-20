@@ -11,7 +11,18 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+	if (str.length === 0) return true;
+	str = str.replace(/[^a-zA-Z0-9]/g,' ');
+	str = str.trim().split(" ");
+	const stack = [str[0].toLowerCase()];
+	for (let i = 1; i < str.length; i += 1) {
+		if (str[i] !== ' ' && str[i] !== '') {
+			if (stack.length === 0) stack.push(str[i].toLowerCase());
+			else if (stack[stack.length - 1] === str[i].split("").reverse().join("").toLowerCase()) stack.pop();
+			else stack.push(str[i].toLowerCase());
+		}
+	}
+	return stack.length === 0;
 }
 
 module.exports = matchWord;
