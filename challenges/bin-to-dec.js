@@ -21,4 +21,5 @@ function binToDec(binary) {
   return parseInt(binaryArray.reverse().join(''), 2) 
 }
 
+
 module.exports = binToDec;
