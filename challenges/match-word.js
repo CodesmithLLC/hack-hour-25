@@ -11,7 +11,19 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  if (!str) return true;
+  let letters = str.match(/[a-z]+/gi)
+  letters = letters.map(index => index.toLowerCase());
+  if (letters.length & 2 !== 0) return false;
+  const container = [];
+  for (let i = 0; i < letters.length; i += 1) {
+    if (container[container.length - 1] !== letters[i].split('').reverse().join('')) {
+      container.push(letters[i]);
+    } else {
+      container.pop();
+    }
+  }
+  return container.length === 0
 }
 
 module.exports = matchWord;
