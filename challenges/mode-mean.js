@@ -9,6 +9,20 @@
  *
  */
 
+//  function mean (array) {
+//    return array.reduce((a, b) => a + b) / array.length;
+//  }
+
+// function mode (array) {
+//   count = array.reduce((accum, element) =>{
+//     !accum[element] ? accum[element] = 1 : accum[element] += 1;
+//     return accum;
+//   }, {});
+
+  
+// }
+
+console.log(mode([1,2,3,4, 4, 4]))
 
 function modemean(array) {
 
