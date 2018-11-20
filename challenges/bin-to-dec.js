@@ -28,4 +28,14 @@ function binToDec(binary) {
 	return decimal + ones;
 }
 
+
+function decToBin(decimal) {
+	const result = [];
+	while (decimal !== 0) { 
+		result.push((decimal % 2).toString());
+		decimal = Math.floor(decimal/2);
+	}
+	return result.reverse().join("");
+}
+
 module.exports = binToDec;
