@@ -8,22 +8,12 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
-
-function combinations(array) {
-
+function subsetSum(array, target, index = 0) {
+  if (target === 0) return true;
+  if (index === array.length) return false;
+  return subsetSum(array, target - array[index], index + 1) || subsetSum(array, target, index + 1);
 }
 
-
-function subsetSum(array, target) {
-  // declare a new variable, 'combinations' to store all possible sums of elements in 'array'
-  if (target === 0)
-
-  // iterate through combinations, if element in combinations minus target is equal to zero, return true
-    // else return false
-
-
-}
-
-console.log(subsetSum([1,2,3]))
+console.log(subsetSum([1,2,3], 1));
 
 module.exports = subsetSum;
