@@ -11,6 +11,8 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  if (!l1) return l2;
+  if (!l2) return l1;
   let current1 = l1;
   let current2 = l2;
   let holder1;
@@ -31,6 +33,7 @@ function zip(l1, l2) {
     current1.next = current2;
     current2.next = holder1;
   }
+  return l1;
 };
 
 module.exports = {Node: Node, zip: zip};
