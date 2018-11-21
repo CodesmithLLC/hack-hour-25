@@ -12,6 +12,8 @@ function Node(val) {
 
 function zip(l1, l2) {
   // create the head from the first node in l1
+  if (l2 === null) {return l1};
+  if (l1 === null) {return l2};
   const current1 = l1[0];
   const current2 = l2[0];
   while (current1 !== null) {
