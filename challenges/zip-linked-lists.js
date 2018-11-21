@@ -17,20 +17,26 @@ function zip(l1, l2) {
   if (l2 === undefined) return l1;
   
   // initialize variables to start at l1 and l2, respectively
-  let l1Curr, l1Tracker = l1;
-  let l2Curr, l2Tracker = l2;
+  let l1Curr = l1;
+  let l1Tracker = l1;
+  let l2Curr = l2;
+  let l2Tracker = l2;
 
   // only iterate through when both l1Curr and l2Curr are defined
-  while (l1Curr !== undefined && l2Curr !== undefined) {
+  while (l1Curr !== null && l2Curr !== null) {
+
     // set l1Tracker to hold the next node of l1Curr
-    l1Tracker = l1Curr.next();
+    l1Tracker = l1Curr.next;
     l1Curr.next = l2Curr;
+
     // set l2Tracker to hold the next node of l2Curr
-    l2Tracker = l2Curr.next();
+    l2Tracker = l2Curr.next;
     l2Curr.next = l1Tracker;
+
     // set l1Curr and l2Curr to where the trackers are
     l1Curr = l1Tracker;
     l2Curr = l2Tracker;
+
   }
   return l1;
 };
