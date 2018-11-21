@@ -5,24 +5,24 @@
  * BONUS: Do this in place
  */
 // adds node to end of list
-LinkedList.prototype.push = function (value) {
-  const thisNode = new Node(value);
-  if (this.head === null) {
-    this.head = thisNode;
-    this.tail = thisNode;
-  } else {
-    this.tail.next = thisNode;
-    this.tail = thisNode;
-  }
-};
+// LinkedList.prototype.push = function (value) {
+//   const thisNode = new Node(value);
+//   if (this.head === null) {
+//     this.head = thisNode;
+//     this.tail = thisNode;
+//   } else {
+//     this.tail.next = thisNode;
+//     this.tail = thisNode;
+//   }
+// };
 
-function LinkedList(...args) {
-  this.head = null;
-  this.tail = null;
-  for (let i = 0; i < args.length; i += 1) {
-    this.push(args[i]);
-  }
-}
+// function LinkedList(...args) {
+//   this.head = null;
+//   this.tail = null;
+//   for (let i = 0; i < args.length; i += 1) {
+//     this.push(args[i]);
+//   }
+// }
 
 function Node(val) {
   this.value = val;
@@ -30,8 +30,8 @@ function Node(val) {
 }
 
 
-let l1 = new LinkedList(1, 2, 3);
-let l2 = new LinkedList(4, 5);
+// let l1 = new LinkedList(1, 2, 3);
+// let l2 = new LinkedList(4, 5);
 
 
 function zip(l1, l2) {
@@ -53,6 +53,6 @@ function zip(l1, l2) {
   if (x) i.next = x;
 };
 
-zip(l1, l2);
+// zip(l1, l2);
 
 module.exports = {Node: Node, zip: zip};
