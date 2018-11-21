@@ -14,10 +14,15 @@
  */
 
 function binToDec(binary, unit = 1, index = binary.length - 1) {
-  console.log(unit)
-  if (index === 0) return binary[0] * unit;
-  return binary[index] * unit + binToDec(binary, unit *= 2, index -= 1);
+  return index === 0 ? binary[0] * unit : binary[index] * unit + binToDec(binary, unit *= 2, index -= 1);
 }
-console.log('binToDec: ', binToDec('0101'));
+console.log(decToBin(2));
+
+// function decToBin(num, divisor = 2, remainder = 1) {
+//   if (num === 0) return '0';
+//   if (num === 1) return '1';
+//   if (num % divisor === remainder) return '1' + decToBin(num - divisor, divisor *= 2, remainder *= 2);
+//   // start with empty string
+// }
 
 module.exports = binToDec;
