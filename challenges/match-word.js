@@ -34,4 +34,6 @@ function matchWord(str) {
   return (stack.length < 1 && all.length !== some.length) ? true : false;
 }
 
+console.log(matchWord('__ENDD_NE-----') )
+
 module.exports = matchWord;
