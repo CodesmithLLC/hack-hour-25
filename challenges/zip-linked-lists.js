@@ -22,6 +22,7 @@ function zip(l1, l2) {
     current1.next = current2;
     if (next1 === null) {break};
     current2.next = next1;
+    if (next2 === null ) {break}
     current1 = current2.next;
     current2 = next2;
   }
