@@ -33,10 +33,12 @@ function zip(l1, l2) {
     link2 = l2hold;
 
     if (!link1 && link2) {
+      console.log("link1 end");
       link1 = link2;
       break;
     }
     if (link1 && !link2) {
+      console.log("link2 end");
       break;
     }
   }
