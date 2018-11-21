@@ -10,7 +10,8 @@ function Node(val) {
   this.next = null;
 }
 
-function zip(l1, l2) {
+function zip(l1, l2 = null) {
+  if (l1 === undefined || l1.value === undefined && l2) return l2;
   let li1 = l1, li2=l2;
   while (li2 !== null) {
     let n1 = li1.next;
