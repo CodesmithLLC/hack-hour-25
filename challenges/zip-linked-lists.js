@@ -30,11 +30,13 @@ function Node(val) {
 }
 
 
-let l1 = new LinkedList([1, 2, 3]);
-let l2 = new LinkedList([4, 5, 6]);
+let l1 = new LinkedList(1, 2, 3);
+let l2 = new LinkedList(4, 5);
 
 
 function zip(l1, l2) {
+  if (!l1.head) return l2;
+  if (!l2.head) return l1;
   let i = l1.head;
   let j = i.next;
   let x = l2.head;
@@ -45,12 +47,12 @@ function zip(l1, l2) {
     i = j;
     j = j.next;
     x = y;
+    if (!y) return;
     y = y.next;
   }
   if (x) i.next = x;
 };
 
 zip(l1, l2);
-
 
 module.exports = {Node: Node, zip: zip};
