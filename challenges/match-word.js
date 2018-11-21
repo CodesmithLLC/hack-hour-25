@@ -10,8 +10,51 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
-function matchWord(str) {
-
+function pullWord(str) {
+  const collection = [];
+  let currWord = '';
+  let startedWord = false;
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i].match(/[a-z]/i)) {
+      currWord = currWord.concat(str[i].toLowerCase());
+      startedWord = true;
+    } else if (startedWord) {
+      collection.push(currWord);
+      currWord = '';
+      startedWord = false;
+    }
+  }
+  collection.push(currWord);
+  return collection;
 }
+
+function isSubstring(s1, s2) {
+  return s1.indexOf(s2) >= 0;
+}
+
+function stringRotation(s1, s2) {
+  if (s1.length !== s2.length) return false;
+  const double = s1 + s1;
+  return isSubstring(double, s2);
+}
+
+function matchWord(str) {
+  const collection = pullWord(str);
+  if (collection.length === 0) return true;
+  if (collection.length % 2 === 1) return false;
+  let i = 0;
+  let j = i + 1;
+  while (collection.length > 0) {
+    if (stringRotation(str[i], str[j])) {
+      i += 1;
+      j += 1;
+    } else {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(pullWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
 
 module.exports = matchWord;
