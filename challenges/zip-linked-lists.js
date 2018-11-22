@@ -14,11 +14,11 @@ function zip(l1, l2) {
   // create the head from the first node in l1
   if (!l2) {return l1};
   if (!l1) {return l2};
-  const current1 = l1
-  const current2 = l2
+  let current1 = l1
+  let current2 = l2
   while (current1 !== null) {
-    const next2 = current2.next
-    const next1 = current1.next;
+    let next2 = current2.next
+    let next1 = current1.next;
     current1.next = current2;
     if (next1 === null) {break};
     current2.next = next1;
