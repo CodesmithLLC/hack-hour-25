@@ -16,14 +16,16 @@ function matchWord(str) {
   const regex = /\W|_/gi;
 // split string by special characters
   const newArr = str.split(regex);
-// separate them into separate strings
+//check if theres only one word in the array
   let count = 0;
   for (let i = 0; i < newArr.length; i += 1) {
     if (newArr[i].length >= 1) {
       count += 1;
     }
   }
+  //if yes return false
   if (count === 1) { return false; };
+  // separate them into separate strings
   let str1;
   for (let i = 0; i < newArr.length; i += 1) {
     if (newArr[i].length >= 1) {
