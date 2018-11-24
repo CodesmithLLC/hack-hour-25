@@ -30,30 +30,21 @@ function Node(val) {
 }
 
 
-let l1 = new LinkedList(1, 2, 3);
-let l2 = new LinkedList(4, 5);
+let l1 = new LinkedList(1, 2);
+let l2 = new LinkedList('A');
 
 
-function zip(l1, l2) {
-  if (!l1) return l2;
-  if (!l2) return l1;
-  let i = l1;
-  let j = i.next;
-  let x = l2;
-  let y = x.next;
-  while (x && j) {
-    i.next = x;
-    x.next = j;
-    i = j;
-    j = j.next;
-    x = y;
-    if (!y) return;
-    y = y.next;
-  }
-  if (x) i.next = x;
-};
+function zip(n1, n2) {
+  if (n1 === null && n2 === null) return null;
+  if (!n1) return n2;
+  if (!n2) return n1;
+  const n1Next = n1.next;
+  n1.next = n2;
+  n2.next = zip(n1Next, n2.next);
+  return n1;
+}
 
 console.log(zip(l1.head, l2.head));
-console.log(l1.head.next.next.next.next)
+console.log(l1.head.next.next.next)
 
 module.exports = {Node: Node, zip: zip};
