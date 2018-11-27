@@ -13,11 +13,16 @@ function Node(value) {
     this.next = null;
 }
 
-function reverseLinkedList(head, oldParentNode = head, curNode = head.next, tail = head) {
+function reverseLinkedList(head, oldParentNode = head, curNode, tail = head) {
 
   // console.log('Top');
   // console.log(`oldParentNode: ${JSON.stringify(oldParentNode)}`);  
   // console.log(`curNode: ${JSON.stringify(curNode)}`);  
+
+  // Edge Case: when head is null
+  if (head == null) return head;
+
+  curNode = tail.next;
 
   // Base Case: when curNode is null end of list
   if (curNode == null) return oldParentNode;
@@ -30,19 +35,19 @@ function reverseLinkedList(head, oldParentNode = head, curNode = head.next, tail
 }
 
 // initialize
-// let a = new Node('a');
-// let b = new Node('b');
-// let c = new Node('c');
-// let d = new Node('d');
+let a = new Node('a');
+let b = new Node('b');
+let c = new Node('c');
+let d = new Node('d');
 
 // assign
-// a.next = b;
-// b.next = c;
-// c.next = d;
+a.next = b;
+b.next = c;
+c.next = d;
 
 // console.log(`Head: ${JSON.stringify(a)}`);
 
 // reverse
-// console.log(`New Head: ${JSON.stringify(reverseLinkedList(a))}`);
+console.log(`New Head: ${JSON.stringify(reverseLinkedList(a))}`);
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
