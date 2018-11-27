@@ -13,15 +13,22 @@ function Node(value) {
     this.next = null;
 }
 
-function reverseLinkedList(head, oldParentNode = head, curNode = head.next, tail = head) {
+function reverseLinkedList(head, oldParentNode = head, curNode, tail = head) {
 
   // console.log('Top');
   // console.log(`oldParentNode: ${JSON.stringify(oldParentNode)}`);  
   // console.log(`curNode: ${JSON.stringify(curNode)}`);  
 
+  // Edge Case: when head is null
+  if (head == null) return head;
+
+  // assign only after edge case for null head passed
+  curNode = tail.next;
+
   // Base Case: when curNode is null end of list
   if (curNode == null) return oldParentNode;
 
+  // build new list
   tail.next = curNode.next;
   curNode.next = oldParentNode;
 
