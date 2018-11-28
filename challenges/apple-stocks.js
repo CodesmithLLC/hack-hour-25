@@ -12,6 +12,7 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 function bestProfit(stock_prices_yesterday) {
+  if (!stock_prices_yesterday1 instanceof Array) return 0
   let max = stock_prices_yesterday[0];
   let min = stock_prices_yesterday[0];
   let maxProfit = 0;
