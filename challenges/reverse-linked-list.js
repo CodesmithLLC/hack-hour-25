@@ -1,3 +1,5 @@
+import { reverse } from "dns";
+
 /**
  * Write a function for reversing a linked list.
  * Your function will have one input: the head of the list
