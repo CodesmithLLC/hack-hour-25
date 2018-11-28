@@ -15,13 +15,12 @@
 function bestProfit(stock_prices_yesterday) {
   // initiate empty result array
   const result = [];
+  console.log('result: ', result);
   // create helper function that at every element returns the max trade price
   function maxPrice(current, index, arr) {
     const prices = [];
-    while (index < arr.length) {
-      prices.push(current - arr[index]);
-      index += 1;
-    }
+    const possibleTrades = arr.slice(index + 1);
+    possibleTrades.forEach(e => prices.push(current - e));
     result.push(Math.max(...prices));
   }
   // run the maxPrice func at every element
@@ -31,5 +30,15 @@ function bestProfit(stock_prices_yesterday) {
   if (maxVal > 0) return maxVal;
   return 0;
 }
+
+let arr = [];
+
+arr[3] = 10;
+arr[7] = 5;
+arr[100] = 1
+
+console.log(bestProfit([1, 2, 3, 1, 99, 1, 90, 23]));
+console.log(bestProfit(arr));
+
 
 module.exports = bestProfit;

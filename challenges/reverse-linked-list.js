@@ -43,6 +43,7 @@ function reverse(head, tail = true) {
 }
 
 function reverseLinkedList(head) {
+  if (!head) return head;
   let i = head;
   while (i.next) {
     i = i.next;
