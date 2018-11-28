@@ -16,6 +16,9 @@ function bestProfit(stock_prices_yesterday) {
   // Edge Cases: Check if an array
   if (!(stock_prices_yesterday instanceof Array)) return 0;
 
+  // Edge Cases: If empty array
+  if (stock_prices_yesterday.length === 0) return 0;
+
   // Edge Cases: All values in array are numbers
   if (!(stock_prices_yesterday.every(val => typeof val === 'number'))) return 0;
 
@@ -45,14 +48,14 @@ function bestProfit(stock_prices_yesterday) {
 
 // let priceList_1 = [];
 // priceList_1[0] = 15;
-// priceList_1[30] = true;
+// priceList_1[30] = 7;
 // priceList_1[40] = 1.50;
 // priceList_1[60] = 3;
 // priceList_1[70] = 0.50;
 // priceList_1[90] = 10;
 // priceList_1[100] = 15;
 
-// console.log(`My Best Profit would be: ${bestProfit(priceList_1)}`);
+// console.log(`My Best Profit would be: ${bestProfit()}`);
 
 
 module.exports = bestProfit;
