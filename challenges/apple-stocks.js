@@ -11,10 +11,9 @@
  *
  *  Return 0 if no profit is possible OR if input is invalid.
  */
-const stock_prices_yesterday = [10,2,5,8,14,12,4,9,15]
 
 function bestProfit(stock_prices_yesterday) {
-    if (stock_prices_yesterday.length === 0) {return 0}
+    if (stock_prices_yesterday.length === 0 || !stock_prices_yesterday) {return 0}
     let min = stock_prices_yesterday.shift()
     let profit = 0
     for (let i = 0; i < stock_prices_yesterday.length; i += 1) {
