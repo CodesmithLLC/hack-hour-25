@@ -38,24 +38,21 @@ function romanNumeral(n) {
 	}
 
   // create an array of table's key as integer;
-	let arr = Object.keys(table)
-  arr = arr.map(el => Number(el)).reverse()
+  let arr = Object.keys(table).map(el => Number(el)).reverse()
   // create a while loop to keep subtracting from the n as we travese through the array;
   let i = 0;
   //declare a variable to store the string.
   let result = "";
 	while (n > 0) {
     //if n is bigger than a number in the element, we substract that number until the n is smaller than the element, then we move to the next one;
-    if (n >= arr[i]) {
-      do {
-      result += table[arr[i]]
-      console.log(n)
-      n = n - arr[i];
-      } while (n >= arr[i])
-    }
-  i ++;
+    	if (n >= arr[i]) {
+      		do {
+      		result += table[arr[i]]
+      		n = n - arr[i];
+      		} while (n >= arr[i])
+   		}
+  		i ++;
 	}
-
   return result;
 }
 
