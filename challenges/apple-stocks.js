@@ -13,7 +13,23 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+  // initiate empty result array
+  const result = [];
+  // create helper function that at every element returns the max trade price
+  function maxPrice(current, index, arr) {
+    const prices = [];
+    while (index < arr.length) {
+      prices.push(current - arr[index]);
+      index += 1;
+    }
+    result.push(Math.max(...prices));
+  }
+  // run the maxPrice func at every element
+  stock_prices_yesterday.forEach(maxPrice);
+  // find the max of result array.  If <= 0 return 0
+  const maxVal = Math.max(...result);
+  if (maxVal > 0) return maxVal;
+  return 0;
 }
 
 module.exports = bestProfit;
