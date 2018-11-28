@@ -5,24 +5,24 @@
  * BONUS: Do this in place
  */
 // adds node to end of list
-// LinkedList.prototype.push = function (value) {
-//   const thisNode = new Node(value);
-//   if (this.head === null) {
-//     this.head = thisNode;
-//     this.tail = thisNode;
-//   } else {
-//     this.tail.next = thisNode;
-//     this.tail = thisNode;
-//   }
-// };
+LinkedList.prototype.push = function (value) {
+  const thisNode = new Node(value);
+  if (this.head === null) {
+    this.head = thisNode;
+    this.tail = thisNode;
+  } else {
+    this.tail.next = thisNode;
+    this.tail = thisNode;
+  }
+};
 
-// function LinkedList(...args) {
-//   this.head = null;
-//   this.tail = null;
-//   for (let i = 0; i < args.length; i += 1) {
-//     this.push(args[i]);
-//   }
-// }
+function LinkedList(...args) {
+  this.head = null;
+  this.tail = null;
+  for (let i = 0; i < args.length; i += 1) {
+    this.push(args[i]);
+  }
+}
 
 function Node(val) {
   this.value = val;
@@ -30,29 +30,21 @@ function Node(val) {
 }
 
 
-// let l1 = new LinkedList(1, 2, 3);
-// let l2 = new LinkedList(4, 5);
+let l1 = new LinkedList(1, 2);
+let l2 = new LinkedList('A');
 
 
-function zip(l1, l2) {
-  if (!l1.head) return l2;
-  if (!l2.head) return l1;
-  let i = l1.head;
-  let j = i.next;
-  let x = l2.head;
-  let y = x.next;
-  while (x && j) {
-    i.next = x;
-    x.next = j;
-    i = j;
-    j = j.next;
-    x = y;
-    if (!y) return;
-    y = y.next;
-  }
-  if (x) i.next = x;
-};
+function zip(n1, n2) {
+  if (n1 === null && n2 === null) return null;
+  if (!n1) return n2;
+  if (!n2) return n1;
+  const n1Next = n1.next;
+  n1.next = n2;
+  n2.next = zip(n1Next, n2.next);
+  return n1;
+}
 
-// zip(l1, l2);
+console.log(zip(l1.head, l2.head));
+console.log(l1.head.next.next.next)
 
 module.exports = {Node: Node, zip: zip};
