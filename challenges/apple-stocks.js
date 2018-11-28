@@ -14,6 +14,41 @@
 
 function bestProfit(stock_prices_yesterday) {
 
+  // Edge Cases: Check if an array
+  if (!(stock_prices_yesterday instanceof Array)) return 0;
+
+  // Find the highest price
+  const highestPrice = stock_prices_yesterday.reduce((accum, currentValue, currentIndex) => {
+    if (currentValue > accum.value) {
+      accum.value = currentValue;
+      accum.index = currentIndex;
+    }
+    return accum;
+  }, { index: null, value: Math.max() });
+
+  // Filter lowest Price before highest
+  const lowestPrice = stock_prices_yesterday.reduce((accum, currentValue, currentIndex) => {
+    if (currentValue < accum.value && currentIndex <= accum.index) {
+      accum.value = currentValue;
+      accum.index = currentIndex;
+    }
+    return accum;
+  }, { index: highestPrice.index, value: highestPrice.value });
+  
+  // console.log(highestPrice);
+  // console.log(lowestPrice);
+
+  return (highestPrice.value - lowestPrice.value);
 }
+
+// let priceList_1 = [];
+// priceList_1[0] = 5;
+// priceList_1[30] = 2;
+// priceList_1[40] = 1.50;
+// priceList_1[60] = 10;
+// priceList_1[100] = 2;
+
+// console.log(`My Best Profit would be: ${bestProfit(priceList_1)}`);
+
 
 module.exports = bestProfit;
