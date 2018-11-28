@@ -13,22 +13,19 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-	// input is invalid
-	if (!(stock_prices_yesterday instanceof Array)) return 0;
-	const prices = stock_prices_yesterday.slice();
-	prices.sort((a, b) => a - b);
-
-	const profit = [];
-
-	// iterate through until prices is empty
-	while (prices.length !== 0) {
-		const currInd = stock_prices_yesterday.indexOf(prices[0]);
-		const copy = stock_prices_yesterday.slice(currInd);
-		const maxInd = stock_prices_yesterday.indexOf(Math.max(...copy));
-		profit.push(stock_prices_yesterday[maxInd] - prices[0]);
-		prices.shift();
-	}
-	return profit.sort((a, b) => a - b)[profit.length - 1];
+	if ((stock_prices_yesterday instanceof Array) && stock_prices_yesterday.length !== 0) {
+		const prices = stock_prices_yesterday.slice();
+		prices.sort((a, b) => a - b);
+		const profit = [];
+		while (prices.length !== 0) {
+			const currInd = stock_prices_yesterday.indexOf(prices[0]);
+			const copy = stock_prices_yesterday.slice(currInd);
+			const maxInd = stock_prices_yesterday.indexOf(Math.max(...copy));
+			profit.push(stock_prices_yesterday[maxInd] - prices[0]);
+			prices.shift();
+		}
+		return profit.sort((a, b) => a - b)[profit.length - 1];
+	} else return 0;
 }
 
 module.exports = bestProfit;
