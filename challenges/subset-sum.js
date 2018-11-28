@@ -9,7 +9,25 @@
  */
 
 function subsetSum(array, target) {
+  for (let i = 0; i < array.length; i += 1){
+    if (array[i] > target) {
+      array.shift();
+    }
 
+    let remainder = target - array[i]; //2
+      for (let j = 1; j < array.length; j+=1){
+        if (remainder === array[j]) return true;
+        else {
+          while (remainder >= 0){
+            remainder -= array[j]
+          } 
+        }
+    }
+    return false;
+  }
 }
+
+console.log(subsetSum([3, 7, 4, 2], 5))
+// console.log(subsetSum([8, 2, 4, 12], 13))
 
 module.exports = subsetSum;
