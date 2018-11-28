@@ -15,11 +15,10 @@
 
 function binToDec(binary) {
   return binary.split('').reverse().reduce((accum, element, i) => {
-    if (element !== '0') {
-      accum += Math.pow(2, i);
-    }
-    return accum 
+    return accum += (2 ** i) * element;
   }, 0);
 }
+
+console.log(binToDec('10000'));
 
 module.exports = binToDec;

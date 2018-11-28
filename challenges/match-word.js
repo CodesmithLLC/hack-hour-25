@@ -10,28 +10,51 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
+
 function matchWord(str) {
-  if (typeof str !== 'string') return false;
-  if (str.length === 0) return true;
-  str = str.toLowerCase();
-  str = str.replace(/^[^a-zA-Z0-9]*|[^a-zA-Z0-9]*$/g, '');
-
   const stack = [];
-  const all = [];
-  const some = [];
 
-  for (let i = 0; i < str.length; i++) {
-    all.push(str[i])
-    if (str[i].match(/^[a-z0-9]+$/i)) {
-      some.push(str[i]);
-      if (stack[stack.length - 1] === str[i]) {
-        stack.pop();
-      } else {
-        stack.push(str[i]);
-      }
-    }
-  }
-  return (stack.length < 1 && all.length !== some.length) ? true : false;
+  const words = str.match(\b\w*?\d\w*\b)
+
+  console.log(words);
+
+  // words.forEach((word) => {
+  //   if (word.split('').reverse().join('') === stack[stack.length - 1]) {
+  //     stack.pop();
+  //   } else {
+  //     stack.push(word);
+  //   }
+  //   console.log(stack);
+  // })
+  // return stack.length === 0;
 }
+
+console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
+
+// function matchWord(str) {
+//   if (typeof str !== 'string') return false;
+//   if (str.length === 0) return true;
+//   str = str.toLowerCase();
+//   str = str.replace(/^[^a-zA-Z0-9]*|[^a-zA-Z0-9]*$/g, '');
+
+//   const stack = [];
+//   const all = [];
+//   const some = [];
+
+//   for (let i = 0; i < str.length; i++) {
+//     all.push(str[i])
+//     if (str[i].match(/^[a-z0-9]+$/i)) {
+//       some.push(str[i]);
+//       if (stack[stack.length - 1] === str[i]) {
+//         stack.pop();
+//       } else {
+//         stack.push(str[i]);
+//       }
+//     }
+//   }
+//   return (stack.length < 1 && all.length !== some.length) ? true : false;
+// }
+
+// console.log(matchWord('__ENDD_NE-----'))
 
 module.exports = matchWord;
