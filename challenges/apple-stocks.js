@@ -16,7 +16,8 @@ function bestProfit(stock_prices_yesterday) {
 	// input is invalid
 	if (!(stock_prices_yesterday instanceof Array)) return 0;
 	const prices = stock_prices_yesterday.slice();
-	prices.sort();
+	prices.sort((a, b) => a - b);
+
 	const profit = [];
 
 	// iterate through until prices is empty
@@ -27,7 +28,7 @@ function bestProfit(stock_prices_yesterday) {
 		profit.push(stock_prices_yesterday[maxInd] - prices[0]);
 		prices.shift();
 	}
-	return profit.sort()[profit.length - 1];
+	return profit.sort((a, b) => a - b)[profit.length - 1];
 }
 
 module.exports = bestProfit;
