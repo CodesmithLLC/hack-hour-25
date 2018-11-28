@@ -11,7 +11,6 @@
  *
  *  Return 0 if no profit is possible OR if input is invalid.
  */
-const stock_prices_yesterday = [10,2,5,8,14,12,4,9,15]
 
 function bestProfit(stock_prices_yesterday) {
     if (stock_prices_yesterday.length === 0) {return 0}
