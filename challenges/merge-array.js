@@ -16,7 +16,7 @@
 function mergeArrays(arr1, arr2) {
   let i = 0;
   let j = 0;
-  const result = [];
+  let result = [];
   while (i < arr1.length && j < arr2.length) {
     if (arr1[i] < arr2[j]) {
       result.push(arr1[i]);
@@ -26,11 +26,17 @@ function mergeArrays(arr1, arr2) {
       j += 1;
     }
   }
-  return i ? result.concat(arr1.slice(i)) : result.concat(arr2.slice(j));
+  console.log(j)
+  console.log(i)
+  if (i - arr1.length) {
+    result = result.concat(arr1.slice(i));
+  } else {
+    result = result.concat(arr2.slice(j));
+  } 
+  return result;
 }
 
-var my_array = [3,4,6,10,11,15,21];
-var another_array = [1,5,8,12,14,19];
+var my_array = [3,4,6,10,11,15];
+var another_array = [1,1, 5,8];
 console.log(mergeArrays(my_array, another_array));
-[1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19, 21]
 module.exports = mergeArrays;
