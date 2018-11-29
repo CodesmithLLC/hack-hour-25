@@ -14,7 +14,20 @@
  */
 
 function mergeArrays(arr1, arr2) {
-
+  if (!arr1 || typeof(arr1) !== 'Object') return arr2
+  if (!arr2 || typeof(arr1) !== 'Object') return arr1
+  let resArray = [], i = arr1.length-1, j = arr2.length-1
+  while (true) {
+    resArray.unshift( arr1[i] > arr2[j] ? arr1[i--] : arr2[j--])
+    if (i < 0) {
+      resArray = arr2.slice(0, j+1).concat(resArray)
+      break
+    } else if (j < 0) {
+      resArray = arr1.slice(0, i+1).concat(resArray) 
+      break
+    }
+  }
+  return resArray
 }
 
 module.exports = mergeArrays;
