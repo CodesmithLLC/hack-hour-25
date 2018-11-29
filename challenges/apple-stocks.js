@@ -12,10 +12,9 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
+/* function bestProfit(stock_prices_yesterday) {
   // initiate empty result array
   const result = [];
-  console.log('result: ', result);
   // create helper function that at every element returns the max trade price
   function maxPrice(current, index, arr) {
     const prices = [];
@@ -30,15 +29,22 @@ function bestProfit(stock_prices_yesterday) {
   if (maxVal > 0) return maxVal;
   return 0;
 }
+*/
 
-let arr = [];
+function bestProfit(stocks) {
+  if (!stocks) return 0;
+  let minI = 0;
+  let maxProfit = 0;
+  for (let i = 0; i < stocks.length; i += 1) {
+    if (stocks[i] < stocks[minI]) minI = i;
+    const profit = stocks[i] - stocks[minI];
+    if (maxProfit < profit) maxProfit = profit;
+  }
+  return maxProfit;
+}
 
-arr[3] = 10;
-arr[7] = 5;
-arr[100] = 1
-
-console.log(bestProfit([1, 2, 3, 1, 99, 1, 90, 23]));
-console.log(bestProfit(arr));
+console.log(bestProfit([99, 5, 10, 23]));
+// console.log(bestProfit(arr));
 
 
 module.exports = bestProfit;
