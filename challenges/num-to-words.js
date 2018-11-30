@@ -14,6 +14,57 @@
 
 function numToWords(num) {
 
+	// regular words
+	const words = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+	
+	// the tens value
+	const wordsTy = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninty'];
+
+	// places 
+	const places = ['', 'Thousand', 'Million', 'Billion', 'Trillion', 'Quadrillion'];
+
+	let result = ''
+	let numArray = num.toString().split('').reverse();
+	let index = 0;
+	let placeIndex = 0;
+
+	while (numArray.length !== 0) {
+
+		const curArray = numArray.splice(index, index + 3).reverse();
+		let currStr = '';
+
+		if (curArray.length === 3) {
+			currStr = words[curArray[0] * 1] + 'Hundred';
+			if (((curArray[1] + curArray[2])*1) < 20) {
+				currStr += words[(curArray[1].concat(curArray[2].join(''))*1)];
+			} else {
+				currStr += wordsTy[curArray[1] * 1] + words[curArray[2] * 1];
+			}
+		}
+
+		if (curArray.length === 2) {
+			if (((curArray[0] + curArray[1])*1) < 20) {
+				currStr += words[(curArray[0].concat(curArray[1].join(''))*1)];
+			} else {
+				currStr += wordsTy[curArray[0] * 1] + words[curArray[1] * 1];
+			}
+		}
+
+		if (curArray.length === 1) {
+			currStr = words[curArray[0] * 1];
+		}
+
+		currStr += places[placeIndex];
+		placeIndex += 1;
+
+		result = currStr + result;
+		index += 3;
+	}
+
+	return result;
 }
 
 module.exports = numToWords;
+
+console.log(numToWords(2999));
+console.log(numToWords(42));
