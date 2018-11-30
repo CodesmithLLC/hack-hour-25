@@ -43,6 +43,6 @@ function mergeArrays(arr1, arr2) {
 
 // [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19, 21]
 
-// console.log(mergeArrays(my_array, another_array));
+// console.log(mergeArrays(my_array, [1, 2, 3]));
 
 module.exports = mergeArrays;
