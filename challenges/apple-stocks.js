@@ -13,7 +13,25 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+    // DELCARE A MIN VARIBLE AND SET IT TO 0
+    // ITERATE OVER THE ARRAY
+    // DELCARE MAX VARIABLE TO SET MAX PRICE 
+    // CHECK IF 
+    let min = 0;
+    console.log(min)
+    for (let i = 0; i < stock_prices_yesterday.length; i += 1) {
+        // CHECK IF 
+        let max;
+        min = i
+        if (min < stock_prices_yesterday[i]) {
+            min = stock_prices_yesterday[i]
+            console.log(min)
 
+        }
+    }
+    // return profit;
 }
+const prices = [23, 100, 5, 110, 90, 95]
 
+console.log(bestProfit(prices)); //105
 module.exports = bestProfit;
