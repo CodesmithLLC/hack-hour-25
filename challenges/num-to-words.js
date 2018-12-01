@@ -13,7 +13,10 @@
  */
 
 function numToWords(num) {
-
+    const digits = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
+    const tens = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
+    const byTen = ["Twenty", "Thirty", "Fourty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
+    const higher = ["Hundred", "Thousand", "Million", "Billion", "Trillion", "Quadrillion"];
 }
 
 module.exports = numToWords;
