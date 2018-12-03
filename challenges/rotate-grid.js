@@ -17,6 +17,16 @@
  */
 
 function rotateGrid(grid, n) {
+	//create an output array of 3 nested array,
+	let outputArr = []
+	for (let i = 0; i < n; i++) {
+		outputArr.push([])
+	}
+	for (let j = n - 1; j >= 0; j--) {
+		for (let i = 0; i < n; i ++) {
+			outputArr[i].push(grid[j][i])
+		}
+	}
 
 }
 
