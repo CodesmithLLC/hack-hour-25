@@ -17,7 +17,28 @@
  */
 
 function rotateGrid(grid, n) {
-
+  // rotation will be n - 1 due to index starting at 0
+  const rotation = n - 1;
+  // set up 3 array to return
+  const grid1 = [];
+  const grid2 = [];
+  const grid3 = [];
+  for (let i = 0; i < grid.length; i += 1) {
+    grid[i].forEach((el, index) => {
+      if (index === 0) {
+        grid1[index + rotation] = el;
+      }
+      if (index === 1) {
+        grid2[index] = el;
+      }
+      if (index === 2) {
+        grid3[index - rotation] = el;
+      }
+    });
+  }
+  return [grid1, grid2, grid3];
 }
+
+console.log(rotateGrid([[1,2,3],[4,5,6],[7,8,9]], 3));
 
 module.exports = rotateGrid;
