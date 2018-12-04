@@ -3,7 +3,7 @@
  */
 
 
-function Stack() {
+class Stack{
 
 }
 
