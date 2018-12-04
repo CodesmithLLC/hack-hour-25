@@ -17,7 +17,27 @@
  */
 
 function rotateGrid(grid, n) {
+  // Declare an output array
+  const output = [];
 
+  // Iterate n number of times in reverse
+  for (let i = n - 1; i > -1; i -= 1) {
+    // Declare a temp subarray
+    const tempArray = [];
+    // Iterate through each subarray
+    grid.forEach((subArray) => {
+      // Unshift the ith element of the subarray to the beginning of the temp array
+      tempArray.unshift(subArray[i]);
+    });
+    // Unshift the temp array to the output array
+    output.unshift(tempArray);
+  }
+  // Return output
+  return output;
 }
+
+const sampleGrid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+console.log(rotateGrid(sampleGrid, 3)); // returns [[7, 4, 1], [8, 5, 2], [9, 6, 3]]
+
 
 module.exports = rotateGrid;
