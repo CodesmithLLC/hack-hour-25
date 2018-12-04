@@ -25,7 +25,8 @@ const stack1 = new Stack();
 const stack2 = new Stack();
 
 stack1.push(0);
-stack2.push('A');
+stack1.push(1);
+
 
 
 
@@ -40,16 +41,16 @@ function Queue() {
 }
 
 Queue.prototype.enqueue = function(value) {
-  stack1.push(value);
-}
+  this.stack1.push(value);
+};
 
 Queue.prototype.dequeue = function() {
-  while (stack1.length > 1) {
-    const popped = stack1.pop();
-    stack2.push(popped);
+  while (this.stack1.index > 1) {
+    const popped = this.stack1.pop();
+    this.stack2.push(popped);
   };
-  return stack1;
-}
+  return this.stack1.storage;
+};
 
 // const testStack1 = new Stack();
 // const testStack2 = new Stack();
@@ -61,7 +62,12 @@ Queue.prototype.dequeue = function() {
 // testStack2.push('B');
 // testStack2.push('C');
 
-// const testQueue = new Queue(testStack1, testStack2);
+// const testQueue = new Queue();
+// testQueue.enqueue(0);
+// testQueue.enqueue(1);
+// console.log(testQueue)
+// console.log(testQueue.dequeue());
+// console.log(testQueue)
 
 
 module.exports = {Stack: Stack, Queue: Queue};
