@@ -17,6 +17,7 @@ function bestProfit(stock_prices_yesterday) {
     // ITERATE OVER THE ARRAY
     // DELCARE MAX VARIABLE TO SET MAX PRICE 
     // CHECK IF 
+    let MaxI = 0;
     let min = 0;
     console.log(min)
     for (let i = 0; i < stock_prices_yesterday.length; i += 1) {
