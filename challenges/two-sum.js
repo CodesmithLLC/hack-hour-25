@@ -3,7 +3,15 @@
  */
 
 function twoSum(arr, n) {
-
+  arr.sort((a,b)=>a-b);
+  for (let left = 0; left < arr.length; left++ ) {
+    const test = n - arr[left];
+    let right = left + 1;
+    while (arr[right++] < test) {}
+    if (arr[right-1] === test) {
+      return true;
+    }  
+  }
 }
 
 module.exports = twoSum;
