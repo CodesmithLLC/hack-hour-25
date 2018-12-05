@@ -25,4 +25,6 @@ function permPalin(str) {
   return charCheck.length <= 1;
 }
 
+console.log(permPalin('christopher'))
+
 module.exports = permPalin;
