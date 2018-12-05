@@ -38,6 +38,9 @@ function isMirror(string) {
 }
 
 
+const hi = h => console.log(h);
+
+
 function isFlip(string) {
   if (string.length < 2) return false;
   for (let i = 0; i < string.length - 1; i += 2) {
@@ -55,15 +58,15 @@ function balancedParens(input) {
 }
 
 // console.log(balancedParens('{()}'))
-// console.log(balancedParens('()')); 
-console.log(balancedParens(')('));  // false
+// console.log(balancedParens('()'));
+console.log(balancedParens(')(')); // false
 // console.log(balancedParens('(())'));  // true
 // console.log(balancedParens('[](){}'));
 
-console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }'))
-console.log(balancedParens('()')); 
-console.log(balancedParens(')('));  // false
-console.log(balancedParens(' var hubble = function() { telescopes.awesome();'));  // false
+console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }'));
+console.log(balancedParens('()'));
+console.log(balancedParens(')(')); // false
+console.log(balancedParens(' var hubble = function() { telescopes.awesome();')); // false
 
 
 module.exports = balancedParens;
