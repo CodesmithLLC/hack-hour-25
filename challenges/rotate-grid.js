@@ -16,22 +16,36 @@
  * BONUS: Do this in place
  */
 
-function rotateGrid(grid, n) {
-  
-  const output = [];
-  let inner = [];
-  const hold = n;
+ const array = [
+   [1,2,3],
+   [4,5,6],
+   [7,8,9]
+ ];
 
-  for (let j = 0; j < grid.length; j++) {
-    for (let i = n - 1; i >= 0; i--) {
-      inner.push(grid[i][j]);
-    }
-    output.push(inner)
-    i = hold;
-    inner = []
-  }
+console.log(rotateGrid(array, 3))
+
+function rotateGrid(grid, n) {
+  const output = [];
+
   
-  return output;
 }
+
+// function rotateGrid(grid, n) {
+  
+//   const output = [];
+//   let inner = [];
+//   const hold = n;
+
+//   for (let j = 0; j < grid.length; j++) {
+//     for (let i = n - 1; i >= 0; i--) {
+//       inner.push(grid[i][j]);
+//     }
+//     output.push(inner)
+//     i = hold;
+//     inner = []
+//   }
+  
+//   return output;
+// }
 
 module.exports = rotateGrid;
