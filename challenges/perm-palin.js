@@ -20,6 +20,6 @@ function permPalin(str) {
     }
 	return false;
 }
-console.log(permPalin('abab'));
-console.log(permPalin('cbaba'));
+// console.log(permPalin('abab'));
+console.log(permPalin('cbabaq'));
 module.exports = permPalin;
