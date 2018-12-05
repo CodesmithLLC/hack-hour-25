@@ -15,17 +15,22 @@ function Node(value) {
 
 function reverseLinkedList(head, parent) {
     // delcare a placeholder
-    let result = parent || {};
-    // check if head exist
-    if (head) {
-        // if true: delcare new node and set it equal to the next node 
+    // let result = parent || {};
+    // // check if head exist
+    // if(head === null)
+    // if (head) {
+    //     // if true: delcare new node and set it equal to the next node 
 
-        let child = head.next;
-        // let head.next equal to parent 
-        head.next = parent
-        result = reverseLinkedList(child, head)
-    }
-    return result;
+    //     let child = head.next;
+    //     // let head.next equal to parent 
+    //     head.next = parent
+    //     result = reverseLinkedList(child, head)
+    // }
+    // return result;
+
+
+
+    
 }
 
 module.exports = { Node: Node, reverseLinkedList: reverseLinkedList };
