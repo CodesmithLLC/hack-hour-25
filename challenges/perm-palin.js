@@ -5,7 +5,7 @@
  * 	- permPalin('abab') => true
  * 	- permPalin('cbaba') => true
  * 	- permPalin('cbac') => false
- * 	- permPalin('a') => true
+ * 	- permPalin('b') => true
  *
  */
 
