@@ -24,9 +24,9 @@ function validBST(tree) {
 }
 
 BinaryTree.prototype.depthFirstIn = function(callback) {
-  if (this.left) depthFirstIn(callback);
+  if (this.left) this.left.depthFirstIn(callback);
   callback(this.value);
-  if (this.right) depthFirstIn(callback);
+  if (this.right) this.right.depthFirstIn(callback);
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
