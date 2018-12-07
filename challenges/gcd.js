@@ -8,7 +8,13 @@
  */
 
 function gcd(a, b) {
-
+    let newArr = [];
+    for (let i = 0; i < a; i += 1) {
+        if (a % i === 0 && b % i === 0) {
+            newArr.push(i)
+        }
+    }
+    return Math.max(...newArr)
 }
 
 module.exports = gcd;
