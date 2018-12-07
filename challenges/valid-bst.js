@@ -13,7 +13,20 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
+  const values = [];
+  tree.depthFirstIn(function(value) {
+    values.push(value);
+  });
+  for (let i = 1; i < values.length; i += 1) {
+    if (values[i] < values[i - 1]) return false;
+  }
+  return true;
+}
 
+function depthFirstIn(callback) {
+  if (this.left) depthFirstIn(callback);
+  callback(this.value);
+  if (this.right) depthFirstIn(callback);
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
