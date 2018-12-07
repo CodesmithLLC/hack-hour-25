@@ -23,7 +23,7 @@ function validBST(tree) {
   return true;
 }
 
-function depthFirstIn(callback) {
+BinaryTree.prototype.depthFirstIn = function(callback) {
   if (this.left) depthFirstIn(callback);
   callback(this.value);
   if (this.right) depthFirstIn(callback);
