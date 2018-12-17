@@ -10,7 +10,15 @@
 
 
 function countTwos(num) {
-
+	const TWO = '2';
+	let result = 0;
+	for (let i = 1; i <= num; i += 1) {
+		let numArr = i.toString().split('');
+		numArr = numArr.filter(number => number === '2');
+		result += numArr.length;
+	}
+	console.log(result)
+	return result;
 }
 
 module.exports = countTwos;
