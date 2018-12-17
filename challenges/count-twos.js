@@ -10,7 +10,16 @@
 
 
 function countTwos(num) {
-
+  let count=0;
+  for (let i = 0; i <= num.toString(); i++) {
+    let numString = i.toString();
+    for (let character of numString) {
+      if ((character * 1) == 2) {
+        count ++
+      }
+    }
+  }
+  return count;
 }
 
 module.exports = countTwos;
