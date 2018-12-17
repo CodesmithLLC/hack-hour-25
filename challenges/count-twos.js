@@ -10,7 +10,24 @@
 
 
 function countTwos(num) {
+  const numStrArr = [];
+  let counter = 0;
+//create an array of nums 
+  for (let i = 1; i <= num; i += 1) {
+    numStrArr.push(i.toString());
+  }
 
+  numStrArr.forEach(el => {
+    if (el < 10) counter = 1;
+    if (el.length > 1) {
+      for (let i = 0 ; i < el.length; i += 1) {
+        if (el[i] === '2') counter += 1;
+      }
+    }
+  })
+  return counter;
 }
+
+console.log(countTwos(11420));
 
 module.exports = countTwos;
