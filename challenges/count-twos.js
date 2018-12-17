@@ -10,7 +10,21 @@
 
 
 function countTwos(num) {
-
+  let count = 0;
+  for (let i = 0; i <= num; i += 1) {
+    const stringed = i.toString();
+    if (stringed.includes("2")) {
+      for (let j = 0; j < stringed.length; j += 1) {
+        if (stringed[j] === '2') count += 1;
+      }
+    } 
+  }
+  return count;
 }
 
+console.log(countTwos(1))//;  -> 0
+console.log(countTwos(3))//;  -> 1
+console.log(countTwos(13))//;  -> 2
+console.log(countTwos(1000))//;  -> 300
+console.log(countTwos(11420))//;  -> 4483
 module.exports = countTwos;
