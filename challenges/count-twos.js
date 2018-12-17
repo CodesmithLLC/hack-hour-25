@@ -17,7 +17,6 @@ function countTwos(num) {
 		numArr = numArr.filter(number => number === '2');
 		result += numArr.length;
 	}
-	console.log(result)
 	return result;
 }
 
