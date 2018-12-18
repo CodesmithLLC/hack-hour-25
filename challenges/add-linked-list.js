@@ -51,24 +51,24 @@ function addLinkedList(l1, l2) {
   return beginning;
 }
 
-const a = new Node(9);
-const b = new Node(9);
-const c = new Node(9);
+// const a = new Node(9);
+// const b = new Node(9);
+// const c = new Node(9);
 
-const d = new Node(9);
+// const d = new Node(9);
 // const e = new Node(9);
 // const f = new Node(9);
 
-a.next = b;
-b.next = c;
+// a.next = b;
+// b.next = c;
 
 // d.next = e;
 // e.next = f;
 
-let g = addLinkedList(a,d);
-while (g) {
-  console.log(g.value);
-  g = g.next;
-}
+// let g = addLinkedList(a,d);
+// while (g) {
+//   console.log(g.value);
+//   g = g.next;
+// }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
