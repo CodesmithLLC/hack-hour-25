@@ -27,6 +27,9 @@ function addLinkedList(l1, l2) {
   for (let i = 0; i < digits.length; i += 1) {
     if (digits[i] >= 10) {
       digits[i] -= 10;
+      if (!digits[i + 1]) {
+        digits[i + 1] = 0;
+      }
       digits[i + 1] += 1;
     }
   }
@@ -46,13 +49,13 @@ function addLinkedList(l1, l2) {
   return beginning;
 }
 
-// const a = new Node(2);
-// const b = new Node(1);
-// const c = new Node(5);
+// const a = new Node(9);
+// const b = new Node(9);
+// const c = new Node(9);
 
-// const d = new Node(5);
+// const d = new Node(9);
 // const e = new Node(9);
-// const f = new Node(2);
+// const f = new Node(9);
 
 // a.next = b;
 // b.next = c;
