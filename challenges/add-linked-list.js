@@ -49,7 +49,7 @@ function addLinkedList(l1, l2) {
   let current = null;
 
   // return the new linked list 
-  return sum.map(value => {
+  sum.map(value => {
     value = value * 1;
     if (result === null) {
       result = new Node(value);
@@ -61,6 +61,8 @@ function addLinkedList(l1, l2) {
     }
     return current;
   });
+  
+  return result;
 }
 
 // const one = new Node(2);
