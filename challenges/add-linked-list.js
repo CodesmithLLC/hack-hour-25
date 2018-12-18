@@ -17,8 +17,58 @@ function Node(val) {
   this.next = null;
 }
 
-function addLinkedList(l1, l2) {
+const setLinkedList = (value) => {
+  let newLinkedList;
+  let currentNode;
 
+  // turn value into string array and reverse
+  const numArray = String(value).split('').reverse();
+
+  console.log(numArray);
+
+  // iterate thru array till end
+  for (let i = 0; i < numArray.length; i += 1) {
+    // build node for each element
+    if (i === 0) {
+      // head node
+      newLinkedList = new Node(numArray[i]);
+      currentNode = newLinkedList;
+    } else {
+      // all other values
+      currentNode.next = new Node(numArray[i]);
+      currentNode = currentNode.next;
+    }
+  }
+
+  // return new linked list
+  return newLinkedList;
+}
+
+const getLinkedList = (linkedList) => {
+  let val = '';
+  let current = linkedList;
+
+  // iterate thru list
+  while(current) {
+    // concat values to the left until done
+    val = String(current.value) + val;
+    current = current.next;
+  }
+  // convert string to number and return
+  return Number(val);
+}
+
+function addLinkedList(l1, l2) {
+  // get value of l1
+  // get value of l2
+  // performa addition
+  const sum = getLinkedList(l1) + getLinkedList(l2);
+
+  console.log(sum);
+  
+  // store value to linked list
+  // return new linked list
+  return setLinkedList(sum);
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
