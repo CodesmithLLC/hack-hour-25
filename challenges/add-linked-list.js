@@ -47,15 +47,14 @@ function addLinkedList(l1, l2) {
   let sum = (l1Val + l2Val).toString().split('').reverse();
 
   let current = null;
-  
+
   // return the new linked list 
   return sum.map(value => {
     value = value * 1;
     if (result === null) {
       result = new Node(value);
       current = result;
-    }
-    else {
+    } else {
       const node = new Node(value);
       current.next = node;
       current = node;
