@@ -21,14 +21,14 @@ function addLinkedList(l1, l2) {
   if (!l1) return;
   if (!l2) return;
   let current1 = l1;
-  let current2 = l2
-  while (current2 || current1) {
+  let current2 = l2;
+  while (current2 && current1) {
     current1 = current1 + current2;
     if (current1 >= 10) {current1.next += 1; current1 - 10};
     current1 = current1.next;
     current2 = current2.next;
   }
-  return current1;
+  return l1;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
