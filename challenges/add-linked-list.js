@@ -18,20 +18,53 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-  const args = [...arguments]
+  const args = [...arguments];
   console.log(args);
 
-  let arr = args.map(el=>{
+  //for each arg, parse the linked list into a readable number
+  let arr = args.map(el => {
     let output = [];
-    while(el){
+    while (el) {
       output.push(el.value);
       el = el.next;
     }
-    output = output.reverse().join('');
+    output = output.reverse().join("");
     output = parseInt(output);
     return output;
-  })
-  return arr.reduce((a,b)=>a+b);
+  });
+
+  //sum each arg together
+  output = arr.reduce((a, b) => a + b);
+
+  //reverse in preparation for linked listifying
+  output = output
+    .toString()
+    .split("")
+    .reverse();
+
+  //create new array where each one is its own node
+  let LL = output.map(el => {
+    return new Node(el);
+  });
+
+  //set head
+  const outputLL = LL[0];
+
+  //link rest of list
+  LL.reduce((a, b) => {
+    a.next = b;
+    return a.next;
+  }, outputLL);
+
+  return outputLL;
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+// let ll1 = new Node(1);
+// ll1.next = new Node(2);
+
+// let ll2 = new Node(9);
+// ll2.next = new Node(8);
+
+// console.log(addLinkedList(ll1,ll2))
+
+module.exports = { Node: Node, addLinkedList: addLinkedList };
