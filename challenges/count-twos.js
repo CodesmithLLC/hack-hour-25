@@ -31,5 +31,5 @@ function countTwos(num) {
     }
     return count;
 }
-console.log(countTwos(1000));
+console.log(countTwos(1));
 module.exports = countTwos;
