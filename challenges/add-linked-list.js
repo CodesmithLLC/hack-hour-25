@@ -18,7 +18,31 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-
+  // have a variable for new node
+  const l3 = new Node(l1.value + l2.value);
+  // have a variable to hold the carry
+  // find the carry over value from l3, if any
+  let carry = Math.floor((l1.value + l2.value) / 10);
+  // have points for both linked list
+  let l1Pointer = l1.next;
+  let l2Pointer = l2.next;
+  let l3Pointer = l3.next;
+  // go through the linked list
+  while (l1Pointer !== null && l2Pointer !== null) {
+    // assign l3's next to the value of counter's values
+    if (l1Pointer === null) {
+      l3Pointer = new Node(0 + l2Pointer.value + carry) % 10;
+    } else if (l2Pointer === null) {
+      l3Pointer = new Node(l1Pointer.value + 0 + carry) % 10;
+    }
+    // find new carry and move counters
+    carry = Math.floor(l3Pointer.value / 10);
+    l1Pointer = l1Pointer.next;
+    l2Pointer = l2Pointer.next;
+    l3Pointer = l3Pointer.next;
+  }
+  // after going through all the nodes in both linked list return the linked list
+  return l3;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
