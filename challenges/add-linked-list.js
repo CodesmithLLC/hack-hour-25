@@ -34,14 +34,4 @@ function addLinkedList(l1, l2) {
   return arr.reduce((a,b)=>a+b);
 }
 
-const LL1 = new Node(1);
-LL1.next = new Node(2);
-
-const LL2 = new Node(9);
-LL2.next = new Node(8);
-
-console.log(addLinkedList(LL1,LL2));
-
-
-
 module.exports = {Node: Node, addLinkedList: addLinkedList};
