@@ -20,11 +20,11 @@ function Node(val) {
 function addLinkedList(l1, l2) {
   if (!l1) return;
   if (!l2) return;
-  let current1 = l1;
-  let current2 = l2;
+  let current1.value = l1.value;
+  let current2.value = l2.value;
   while (current2 && current1) {
-    current1 = current1 + current2;
-    if (current1 >= 10) {current1.next += 1; current1 - 10};
+    current1.value = current1.value + current2.value;
+    if (current1.value >= 10) {current1.next.value += 1; current1.value - 10};
     current1 = current1.next;
     current2 = current2.next;
   }
