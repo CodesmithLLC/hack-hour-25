@@ -20,21 +20,20 @@ function Node(val) {
 function addLinkedList(l1, l2) {
   let c1 = l1, c2 = l2, c = 0, r1 = new Node(0), r = r1;
   while (true){
-    r.value = c1.value + c2.value + c;
+    r.value = (c1?c1.value || 0:0) + (c2?c2.value || 0:0) + c;
     if (r.value > 9) {
       r.value = r.value % 10;
       c = 1
     } else {
-      c = null
+      c = 0
     }
     if (c1 != null) c1 = c1.next; 
     if (c2 != null) c2 = c2.next;
-    if(c1 === null && c2 === null && c === null ) break;
+    if(c1 === null && c2 === null && c === 0 ) break;
     r.next = new Node(0);
     r = r.next;
   }
   return r1
 }
-
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
