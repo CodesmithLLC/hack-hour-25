@@ -39,4 +39,28 @@ console.log(gcd(-4, 8)); // -> 4
 console.log(gcd(22, 52)); // -> 2
 console.log(gcd(3, 0)); // -> 0
 
+// SOLUTION #1
+// function gcd(a, b) {
+//   // edge cases
+//   if (isNaN(a) || isNaN(b)) return;
+//   // find min and max
+//   let min = Math.min(a, b);
+//   let max = min === a ? b : a;
+//   // checking if the min is the gcd
+//   if (max % min === 0) return min;
+//   // loop based on half of min, decrement
+//   for (let i = Math.ceil(min / 2); i > 1; i--) {
+//     // check if i can be divided into both a and b
+//     if (a % i === 0 && b % i === 0) return i;
+//   }
+//   return 1;
+// }
+
+// SOLUTION #2
+// euclidian algorithm
+// function gcd(a, b) {
+//   if (b === 0) return a;
+//   return gcd(b, a % b);
+// }
+
 module.exports = gcd;
