@@ -18,7 +18,42 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+	console.log(JSON.stringify(l1))
+	let carried = 0;
+	let newList = new Node(0);
+	let newListPointer = newList
+	let l1Pointer = l1;
+	let l2Pointer = l2;
+	let sum;
+	let counter = 0;
+	do {
+		sum = (l1.value + l2.value + carried) % 10;
+		console.log(sum)
+		carried = Math.floor((l1.value + l2.value + carried)/10);
+		l1Pointer = l1Pointer.next;
+		console.log('l1 ' + JSON.stringify(l1Pointer)) 
+		l2Pointer = l2Pointer.next;
 
+		console.log('l2 ' + JSON.stringify(l2Pointer))
+
+		if (counter === 0) {
+			newListPointer.value = sum;
+			newListPointer
+		}
+			else {
+				let newNode = new Node(sum);
+				newListPointer.next = newNode;
+				console.log('before' + newListPointer)
+				newListPointer = newListPointer.next
+				console.log('after' + newListPointer)
+
+			}
+		counter ++;
+	}
+	while (l1Pointer !== null && l2Pointer !== null)
+
+	console.log('hi' + newList)
+	return newList
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
