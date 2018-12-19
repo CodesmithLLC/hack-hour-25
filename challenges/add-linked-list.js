@@ -18,7 +18,41 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-
+  // Declare a new linked list to store the return values
+  let returnList = new Node(0);
+  // Declare variable to store value of current l1 node
+  let currentL1 = l1;
+  // Declare variable to store value of current l2 node
+  let currentL2 = l2;
+  // Declare array to store carry value
+  const carryArray = [];
+  // Declare array to store sums
+  const sumsArray = [];
+  // Iterate through lists until current.next equals null
+  while (currentL1.value !== null || currentL2.value !== null) {
+    // Add values from lists and store value to array
+    const sum = currentL1.value + currentL2.value;
+    if (sum > 9) {
+      // If sum is grater than 10, split sum into array, 
+      // add index 1 to the array and index 0 to the carry value
+      const digits = sum.toString().split('');
+      carryArray.push(Number(digits[0]));
+      sumsArray.push(Number(digits[0]));
+    } else {
+      // Else add 0 to the carry array
+      carryArray.push(0);
+    }
+    // Assign current.next to current for each linked list
+    currentL1 = currentL1.next;
+    currentL2 = currentL2.next;
+  }
+  // Build the return linked list using the two arrays
+  for (let i = 0; i < sumsArray.length; i++) {
+    returnList.value = sumsArray[i] + carryArray[i];
+    returnList.next = new Node(sumsArray[i + 1] + carryArray[i + 1]);
+    returnList = returnList.next;
+  }
+  return returnList;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
