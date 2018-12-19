@@ -14,7 +14,24 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
-
+  const queue = [[1,tree]]
+  let depth = 1,
+      node = {},
+      currentDepth = 0,
+      currentDepthCounter = 0;
+  while (queue.length) {
+    [depth, node] = queue.shift();
+    if (node.left !== null) queue.push([depth + 1, node.left])
+    if (node.right !== null) queue.push([depth + 1, node.right])
+    if (depth > currentDepth) {
+      currentDepth = depth
+      currentDepthCounter = 1
+    }else{
+      currentDepthCounter += 1
+    }
+  }
+  
+  return ( currentDepthCounter === 1 || currentDepthCounter === Math.pow(2,(currentDepth - 1)) )
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
