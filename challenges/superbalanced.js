@@ -14,7 +14,33 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
-
+  // have variables to increment count of height
+  let leftTreeHeight = 0;
+  let rightTreeHeight = 0;
+  // check to see if tree has no left or right, then return that it is balanced
+  if (tree.left === null && tree.right === null) return true;
+  // have a function that goes down the tree, incrementing count of the left and right height
+  function downTree(subtree, count) {
+    // base case, exit if there is no next tree
+    if (subtree.left === null && subtree.right === null) return count;
+    // if subtree left, go down left with downtree
+    if (subtree.left !== null) {
+      count += 1;
+      downTree(subtree.left, count);
+    }
+    if (subtree.right !== null) {
+      count += 1;
+      downTree(subtree.right, count);
+    }
+  }
+  // run the function on both sides
+  const leftTree = downTree(tree.left, leftTreeHeight);
+  const rightTree = downTree(tree.right, rightTreeHeight);
+  // check to see if the heights that are returned are balanced (1 or less)
+  if (Math.abs(leftTree - rightTree) < 1) {
+    return true;
+  }
+  return false;
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
