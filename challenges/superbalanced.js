@@ -13,8 +13,22 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function superbalanced(tree) {
+function superbalanced(treehead) {
+  let arr = [];
+  function inner(tree, height){
+    console.log(height)
+    console.log(tree.left)
 
+    if (tree.left === null && tree.right === null) {
+      arr.push(height)
+      return
+    }
+    if (tree.left !== null) inner(tree.left, height + 1)
+    if (tree.right !== null) inner(tree.right, height + 1)
+  }
+  inner(treehead, 0)
+  arr.sort()
+  return (arr[arr.length - 1] -  arr[0] > 1)? false :  true;
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
