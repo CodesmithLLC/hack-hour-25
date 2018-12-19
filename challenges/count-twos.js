@@ -38,6 +38,15 @@ function counter(num) {
   return count;
 }
 
+// SOLUTION 1
+// function countTwos(num) {
+//     let count = 0;
+//     for (let i = 2; i <= num; i++) {
+//       i.toString().replace(/2/g, () => count++);
+//     }
+//     return count;
+// }
+
 console.log('Count: ', countTwos(1)); // -> 0
 console.log('Count: ', countTwos(3)); // -> 1
 console.log('Count: ', countTwos(13)); // -> 2
