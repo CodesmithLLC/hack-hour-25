@@ -5,8 +5,7 @@
 function twoSum(arr, n) {
 	for (let i = 0; i < arr.length; i ++) {
 		let remainder = n - arr[i];
-    arr.splice(i,1)
-		if (arr.indexOf(remainder) > -1) return true
+		if (arr.indexOf(remainder) > -1 && arr.indexOf(remainder) !== i) return true
 	}
 	return false
 }
