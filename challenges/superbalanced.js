@@ -35,11 +35,7 @@ function superbalanced(tree) {
   let leftNode = superbalanced(tree.left);
   let rightNode = superbalanced(tree.right);
 
-  if (leftNode === false || rightNode === false) {
-    return false;
-  } 
-
-  return true;
+  if (leftNode === false || rightNode === false) return false;
 }
 
 
