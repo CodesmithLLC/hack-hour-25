@@ -5,7 +5,17 @@
 
 function Stack() {
 
-}
+  const value;
+  let length = 0;
+
+  pop: () => {
+    if this.length
+  };
+
+  push: () => {
+
+  };
+};
 
 
 /**
@@ -17,4 +27,4 @@ function Queue() {
 
 }
 
-module.exports = {Stack: Stack, Queue: Queue};
+module.exports = {Stack, Queue};
