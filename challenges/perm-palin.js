@@ -10,7 +10,15 @@
  */
 
 function permPalin(str) {
-	
+  str = str.replace(/\s+/g, "")
+  console.log(str)
+  let cache = {}
+  for (let character of str) {
+  	cache[character] = (cache.hasOwnProperty(character))? cache[character] - 1 : 1
+  }
+  let arr = Object.values(cache).reduce((accum, el) => accum += el)
+  console.log(arr)
+  return arr > 1 ? false: true
 }
 
 module.exports = permPalin;
