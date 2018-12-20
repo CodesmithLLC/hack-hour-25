@@ -11,7 +11,11 @@
  */
 
 function repeatNumbers(array) {
-
+  let cache = {}
+  for (let el of array) {
+  	if (cache.hasOwnProperty(el)) return el
+  		else cache[el] = 1
+  }
 }
 
 module.exports = repeatNumbers;
