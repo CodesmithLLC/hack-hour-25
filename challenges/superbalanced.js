@@ -12,9 +12,33 @@ function BinaryTree(value) {
   this.left = null;
   this.right = null;
 }
+// BinarySearchTree.prototype.depthFirstPre = function (callback) {
+//   callback(this.value);
+//   if (this.left !== null) this.left.depthFirstPre(callback);
+//   if (this.right !== null) this.right.depthFirstPre(callback);
+// };
+
 
 function superbalanced(tree) {
+  if (!balanced(tree.left)) return false;
+  if (!balanced(tree.right)) return false;
+  
+  const leftHeight = Math.max(leftCount, rightCount); 
+  
+  
+}
 
+function balanced(tree) {
+  let leftCount = 0;
+  let rightCount = 0;
+  if (tree.left) {
+    leftCount += 1;
+    balanced(tree.left);
+  } else if (tree.right) {
+    rightCount += 1;
+    balanced(tree.right);
+  } if (Math.abs(leftCount - rightCount) > 1) return false;
+  else return true;
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
