@@ -13,8 +13,21 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function superbalanced(tree) {
+const resultObj = {};
 
+function superbalanced(tree, count = 0) {
+  // create object to track height
+
+  // if tree.left exists, increment count by 1 and make recursive call to superbalanced
+  if (tree.left) {
+    count += 1;
+    return superbalanced(tree.left, count);
+  }
+  // if tree.right exists, increment count by 1 and make recursive call to superbalanced
+  if (tree.right) {
+    count += 1;
+    return superbalanced(tree.right, count);
+  }
 }
 
-module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
+module.exports = { BinaryTree: BinaryTree, superbalanced: superbalanced };
