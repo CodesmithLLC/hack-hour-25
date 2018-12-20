@@ -12,10 +12,7 @@
 
 function repeatNumbers(array) {
 	if (array.length === 0) return undefined;
-	let possibleSum = 0;
-	for (let i = 1; i <= array.length; i += 1) {
-		possibleSum += 1;
-	}
+	let possibleSum = ((array.length - 1) * ((array.length - 1) + 1)) / 2;
 	const sum = array.reduce((total, current) => total + current);
 	return sum - possibleSum;
 } 
