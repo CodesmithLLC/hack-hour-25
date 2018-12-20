@@ -35,9 +35,4 @@ function repeatNumbers(array) {
 //   return undefined;
 // }
 
-
-const array = [5,7,4,3,9,1,8,2,7]
-
-console.log(repeatNumbers(array));
-
 module.exports = repeatNumbers;
