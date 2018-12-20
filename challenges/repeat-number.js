@@ -11,7 +11,13 @@
  */
 
 function repeatNumbers(array) {
-
+  let number;
+  array.reduce((accum, curr) => {
+    if (accum[curr]) number = curr;
+    else accum[curr] = 1;
+    return accum;
+  }, {});
+  return number;
 }
 
 module.exports = repeatNumbers;
