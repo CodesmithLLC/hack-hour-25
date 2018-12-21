@@ -14,6 +14,8 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  //create two variable that track left and right nodes
+  
 
 }
 
