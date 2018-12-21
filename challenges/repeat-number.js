@@ -11,7 +11,18 @@
  */
 
 function repeatNumbers(array) {
-
+    if (array === 0 || !Array.isArray(array)) {
+        return 0;
+    }
+    let result = 0;
+    for (let i = 0; i < array.length; i += 1) {
+        if (i === i) {
+            result = array[i]
+        }
+    }
+    return result
 }
-
+console.log(repeatNumbers([1, 2, 3, 4, 3]))//3
+console.log(repeatNumbers([1, 2, 3, 4, 1]))//1
+console.log(repeatNumbers([2, 1, 5, 4, 3, 4]))//2
 module.exports = repeatNumbers;
