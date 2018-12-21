@@ -6,11 +6,25 @@
 // below 1000 and return that sum.
 
 function sumMultiples3Or5Below1000() {
-  let sum = 0;
-
-  return sum;
+  // Define a natural numbers array
+  const natNums = [];
+  // Iterate from 1 to 1000
+  for (let num = 1; num < 1000; num += 1) {
+  // if the current number divided by 3 or 5 has no remainder, 
+  // push the number to natural numbers array
+    if (num % 3 === 0 || num % 5 === 0) {
+      natNums.push(num);
+    }
+  }
+  // Sum up the natural numbers array
+  // Return the sum
+  return natNums.reduce((acc, cur) => {
+    acc += cur;
+    return acc;
+  }, 0);
 }
 
+console.log(sumMultiples3Or5Below1000());
 
 // extension make it dynamic function that takes input x,y,z
 // and returns the sum of multiples of x and y below z
