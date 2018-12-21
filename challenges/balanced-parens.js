@@ -25,7 +25,13 @@
  */
 
 function balancedParens(input){
-
+  const tracker = {'(': 0,')': 0,'{': 0,'}': 0,'[': 0,']': 0};
+  for(let i = 0; i<input.length; i+=1){
+    if(Object.keys(tracker).includes(input.charAt(i))){
+      tracker[input.charAt(i)] = tracker[input.charAt(i)] + 1
+    }
+  }
+  return (tracker['('] === tracker[')'] && tracker['{'] === tracker['}'] && tracker['['] === tracker[']'])
 }
 
 module.exports = balancedParens;
