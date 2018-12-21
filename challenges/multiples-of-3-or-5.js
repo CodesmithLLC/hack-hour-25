@@ -28,10 +28,6 @@ function sumMultiplesXOrYBelowZ(x, y, z) {
 
   for (let i = z; i > 0; i -= 1) {
     i % x === 0 || i % y === 0 ? sum += i : 0
-    // if (i % x === 0 || i % y === 0) {
-    //   console.log(i)
-    //   sum += i
-    // }
   }
 
   return sum;

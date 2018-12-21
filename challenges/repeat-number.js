@@ -22,7 +22,7 @@ function repeatNumbers(array) {
     }
     return result
 }
-console.log(repeatNumbers([1, 2, 3, 4, 3]))//3
+console.log(repeatNumbers([1]))//
 console.log(repeatNumbers([1, 2, 3, 4, 1]))//1
 console.log(repeatNumbers([2, 1, 5, 4, 3, 4]))//2
 module.exports = repeatNumbers;
