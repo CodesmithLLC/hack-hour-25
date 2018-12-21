@@ -6,8 +6,11 @@
 // below 1000 and return that sum.
 
 function sumMultiples3Or5Below1000() {
-  let sum = 0;
-
+  let sum = 0, temp;
+  temp = Math.floor(999/3)
+  sum += ( temp*(temp + 1) / 2)
+  temp = Math.floor(999/5)
+  sum += ( temp*(temp + 1) / 2)
   return sum;
 }
 
@@ -15,7 +18,11 @@ function sumMultiples3Or5Below1000() {
 // extension make it dynamic function that takes input x,y,z
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
-  let sum = 0;
+  let sum = 0, temp;
+  temp = Math.floor((z-1)/x)
+  sum += ( temp*(temp + 1) / 2)
+  temp = Math.floor((z-1)/y)
+  sum += ( temp*(temp + 1) / 2)
 
   return sum;
 }
