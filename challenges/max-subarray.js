@@ -7,9 +7,10 @@
  *
  */
 
-function maxSubarray(arr, max = 0, first = true) {
+function maxSubarray(arr, max = Number.NEGATIVE_INFINITY, first = true) {
 	// base case
-	if (arr.length === 0) return max;
+	if (arr.length === 0 && first) return 0;
+	else if (arr.length === 0) return max;
 
 	let copyArr = arr;
 	// only copy the array once and manipulate that array
