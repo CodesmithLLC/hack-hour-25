@@ -7,7 +7,7 @@
  *
  */
 
-function maxSubarray(arr, sum = 0, highestSum = 0, start = 0, cur = 0) {
+function maxSubarray(arr, sum = 0, highestSum = Math.max(), start = 0, cur = 0) {
   // Edge Case: Empty Array
   if (!arr) return 0;
 
