@@ -7,8 +7,29 @@
  *
  */
 
-function maxSubarray(arr) {
+function maxSubarray(arr, sum = 0, highestSum = 0, start = 0, cur = 0) {
+  // Edge Case: Empty Array
+  if (!arr) return 0;
 
+  // Base Case: when end of trying all combinations we are done
+  if (start === (arr.length - 1) && cur === arr.length)  return highestSum;
+
+  // Base Case: if cur at end of array and start not at end, shift, reset sum and try again
+  if (cur === arr.length && start < cur) {
+    start += 1;
+    cur = start;
+    sum = 0;
+    // console.log(`Trying new Sub Array, starting @ position : ${start} `);
+  }
+
+  // add current value to sum
+  sum += arr[cur];
+
+  // if sum greater than highestSum
+  // record new highestSum
+  if (sum > highestSum) highestSum = sum;
+
+  return maxSubarray(arr, sum, highestSum, start, cur + 1); 
 }
 
 module.exports = maxSubarray;
