@@ -15,7 +15,7 @@
 function anagrams(string, result = []) {
   if (string.length === 0) return [''];
   if (string.length === 1) return [string];
-  if (string.length === 2) return [string[0] + string[1], string[1] + string[0]];
+  if (string.length === 2) return string[0] === string[1] ? [string] : [string[0] + string[1], string[1] + string[0]];
   
   const checker = {};
 
