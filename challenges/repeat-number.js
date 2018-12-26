@@ -11,17 +11,39 @@
  */
 
 function repeatNumbers(array) {
-  const cache = {};
 
-  for (let i = 0; i < array.length; i++) {
-    if (cache[array[i]]) {
-      return array[i];
-    } else {
-      cache[array[i]] = array[i];
-    }
+  let arrSum = 0;
+
+  for (let i = 0; i < array[array.length - 1]; i++) {
+    arrSum += array[i];
   }
-  return undefined;
+
+  let arraySum = array.reduce((a, b) => a + b);
+
+  console.log('arrSum: ', arrSum, 'arraySum: ', arraySum)
+
+  return arraySum - arrSum;
+
 }
+
+const array = [1,2,3,4,5,6,6]
+
+console.log(repeatNumbers(array));
+
+
+
+// function repeatNumbers(array) {
+//   const cache = {};
+
+//   for (let i = 0; i < array.length; i++) {
+//     if (cache[array[i]]) {
+//       return array[i];
+//     } else {
+//       cache[array[i]] = array[i];
+//     }
+//   }
+//   return undefined;
+// }
 
 
 // function repeatNumbers(array) {
