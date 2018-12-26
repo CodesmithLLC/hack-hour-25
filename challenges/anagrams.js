@@ -13,7 +13,7 @@
   */
 
 function anagrams(string, result = []) {
-  if (string.length === 0) return [];
+  if (string.length === 0) return [''];
   if (string.length === 1) return [string];
   if (string.length === 2) return [string[0] + string[1], string[1] + string[0]];
   
@@ -32,8 +32,10 @@ function anagrams(string, result = []) {
 
     // check if entry already exists
     eachResult.map(el => {
-      if (!checker[el]) result.push(el);
-      else checker[el] = el;
+      if (!checker[el]) {
+        result.push(el);
+        checker[el] = el;
+      }
       return;
     })
   }
