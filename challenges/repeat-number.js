@@ -28,6 +28,26 @@ function repeatNumbers(array) {
   return -1;
 }
 
+// // Number theory solution O(N) time O(1) space (N-1*N/2 = the sum of all of the numbers up to N)
+// function repeatNumbers(array) {
+//   const expected = ((array.length - 1) * array.length) / 2;
+//   let actual = 0;
+//   for (let i = 0; i < array.length; i += 1) {
+//     actual += array[i];
+//   }
+//   return actual - expected;
+// }
+
+// //Bitwise Solution
+// function repeatNumbers(array) {
+//   let result = 0;
+//   for (let i = 0; i < array.length; i += 1) {
+//     console.log(result, i, array[i]);
+//     result = result ^ i ^ array[i];
+//   }
+//   return result;
+// }
+
 const numArray = [1, 6, 3, 4, 4, 5, 12];
 console.log(repeatNumbers(numArray));
 
