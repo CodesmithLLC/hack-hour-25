@@ -13,6 +13,11 @@
   */
 
 function anagrams(string) {
+  const newArr = [];
+  newArr.push(string);
+  for (let i = 0; i < string.length; i += 1) {
+    
+  }
 
 }
 
