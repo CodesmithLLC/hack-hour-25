@@ -14,6 +14,7 @@
 
 function anagrams(string) {
   const result = [];
+  if (string === '') return [''];
   if (string.length === 1) return [string];
   const curr = string.slice(0, 1);
   const rest = string.slice(1);
@@ -23,7 +24,7 @@ function anagrams(string) {
       result.push(newStr);
     }
   });
-  return result;
+  return new Set(result);
 }
 
 
