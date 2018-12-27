@@ -9,11 +9,17 @@
 
 function maxSubarray(arr) {
   let max = -Infinity;
+  let maxArr;
+  
+}
+
+function maxSubarray1(arr) {
+  let max = -Infinity;
   for (let i = 0; i < arr.length; i += 1) {
     let len = 1;
     while (i + len <= arr.length) {
-      let currArr = arr.slice(i, i + len);
-      let currSum = currArr.reduce((accum, curr) => accum + curr);
+      const currArr = arr.slice(i, i + len);
+      const currSum = currArr.reduce((accum, curr) => accum + curr);
       if (currSum > max) max = currSum;
       len += 1;
     }
