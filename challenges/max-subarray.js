@@ -33,6 +33,19 @@ function maxSubarray(arr) {
   return maxSum;
 }
 
+// SOLUTION 1
+// function maxSubarray(arr) {
+//   let currentMax = Number.NEGATIVE_INFINITY;
+//   let finalMax = Number.NEGATIVE_INFINITY;
+
+//   for (let i = 0; i < arr.length; i += 1) {
+//     currentMax = Math.max(arr[i], currentMax + arr[i]);
+//     finalMax = Math.max(finalMax, currentMax);
+//   }
+//   return finalMax;
+// }
+// const test = [1, -2, 3, 10, -4, 7, 2, -5];
+
 // console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5])); // returns 18
 // console.log(maxSubarray([15, 20, -5, 10])); // returns 40
 
