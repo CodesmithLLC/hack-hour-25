@@ -8,8 +8,7 @@
  */
 
 function maxSubarray(arr) {
-  let max = -Infinity;
-  let maxArr;
+  
   
 }
 
