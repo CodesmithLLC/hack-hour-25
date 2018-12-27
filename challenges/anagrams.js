@@ -13,7 +13,7 @@
   */
 
 function anagrams(string) {
-  const result = [];
+  const result = new Set();
   if (string === '') return [''];
   if (string.length === 1) return [string];
   const curr = string.slice(0, 1);
@@ -21,11 +21,14 @@ function anagrams(string) {
   anagrams(rest).forEach((str) => {
     for (let i = 0; i <= str.length; i += 1) {
       const newStr = str.slice(0, i) + curr + str.slice(i);
-      result.push(newStr);
+      result.add(newStr);
     }
   });
-  return new Set(result);
+  return [...result];
 }
+
+var result = anagrams('abcc');
+console.log(result); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
 
 
 module.exports = anagrams;
