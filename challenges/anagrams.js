@@ -39,7 +39,7 @@ function anagrams(string, pointer = 0, rotations = 0, results = []) {
   // add string to result
   results.push(string);
 
-  console.log(`pointer: ${pointer}, rotation: ${rotations}, results: ${results}, length: ${results.length}`);
+  // console.log(`pointer: ${pointer}, rotation: ${rotations}, results: ${results}, length: ${results.length}`);
 
   return Array.from((new Set(results)).values());
 }
