@@ -30,7 +30,15 @@ function deleteDups(head) {
       cache[currentNode.value] = currentNode.value;
     // if value is a dupliacte, remove from list
     } else {
-      prevNode.next = currentNode.next
+      if (currentNode.next && currentNode.value === currentNode.next.value) {
+        prevNode = currentNode
+        while (currentNode.next && currentNode.value === currentNode.next.value) {
+          currentNode = currentNode.next
+        }
+        prevNode.next = currentNode.next;
+      } else {
+        prevNode.next = currentNode.next
+      }
     }
     // re-assignment facilitates iteration
     prevNode = currentNode;
@@ -38,5 +46,16 @@ function deleteDups(head) {
   }
   return head;
 }
+
+const list = new Node(1);
+list.next = new Node(2);
+list.next.next = new Node(2);
+list.next.next.next = new Node(2);
+list.next.next.next.next = new Node(5);
+list.next.next.next.next.next = new Node(3);
+
+const cleaned = deleteDups(list);
+
+console.log(cleaned);
 
 module.exports = deleteDups;
