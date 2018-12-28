@@ -26,8 +26,10 @@ function EventEmitter() {
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-  if (!this.storage[funcName]) this.storage[funcName] = [func];
-  else this.storage[funcName].push(func);
+  if (!this.storage[funcName]) {
+    this.storage[funcName] = [];
+  }
+  this.storage[funcName].push(func);
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
