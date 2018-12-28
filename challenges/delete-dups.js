@@ -21,7 +21,7 @@ function deleteDups(head) {
 
   // helper to add a node into already unique ll
   function sortIntoUniqueLL(node, llHead) {
-    let currVal = node.value;
+    const currVal = node.value;
     let unique = true;
     let toCompare = llHead;
     while (toCompare) {
@@ -37,12 +37,12 @@ function deleteDups(head) {
   return sortIntoUniqueLL(head, deleteDups(head.next));
 }
 
-const n1 = new Node(1);
+const n1 = new Node(5);
 n1.next = new Node(2);
 n1.next.next = new Node(3);
 n1.next.next.next = new Node(3);
-n1.next.next.next.next = new Node(4);
-n1.next.next.next.next.next = new Node(2);
+n1.next.next.next.next = new Node(3);
+n1.next.next.next.next.next = new Node(3);
 
-console.log(deleteDups(n1.next));
+console.log(deleteDups(n1));
 module.exports = deleteDups;
