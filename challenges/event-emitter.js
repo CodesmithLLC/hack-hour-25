@@ -11,7 +11,6 @@
  * instance.trigger('increment'); // counter should be 1
  * instance.trigger('increment'); // counter should be 2
  *
- *
  * Caveats:
  * - If we repeatedly call .on with the same event name, it should
  *   continue to call the old function(s) as well. That is to say, we can have multiple
@@ -21,16 +20,18 @@
  * - It is not necessary to write a way to remove listeners.
  */
 
-function EventEmitter() {
+// var counter = 0;
 
+function EventEmitter() {
+  this.events = {};
 }
 
-EventEmitter.prototype.on = function(funcName, func) {
-
+EventEmitter.prototype.on = function (funcName, func) {
+  this.events[funcName] = func;
 };
 
-EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+EventEmitter.prototype.trigger = function (funcName, ...args) {
+  return this.events[funcName](...args);
 };
 
 module.exports = EventEmitter;
