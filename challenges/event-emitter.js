@@ -22,15 +22,16 @@
  */
 
 function EventEmitter() {
-
+	this.eventTable = {}
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
+  this.eventTable[funcName] = func
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
 
+  if (this.eventTable.hasOwnProperty(funcName)) this.eventTable[funcName](...args)
 };
 
 module.exports = EventEmitter;
