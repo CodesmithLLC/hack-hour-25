@@ -14,7 +14,7 @@ function Node(value) {
   this.value = value;
   this.next = null;
 }
-
+// try this using with a set, using current and safe trackers
 function deleteDups(head) {
   // keeps record of encountered values
   const cache = {};
