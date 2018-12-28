@@ -1,4 +1,5 @@
-'use strict';
+
+
 /**
  * Make an EventEmitter that
  *
@@ -22,15 +23,33 @@
  */
 
 function EventEmitter() {
-
+  this.listener = {};
 }
 
-EventEmitter.prototype.on = function(funcName, func) {
-
+EventEmitter.prototype.on = function addListener(funcName, func) {
+  if (this.listener[funcName]) {
+    this.listener[funcName].push(func);
+  } else {
+    this.listener[funcName] = [func];
+  }
 };
 
-EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+EventEmitter.prototype.trigger = function triggerListener(funcName, ...args) {
+  if (this.listener[funcName]) {
+    this.listener[funcName].forEach(func => func(...args));
+  }
 };
+/* 
+const instance = new EventEmitter();
+let counter = 0;
+console.log('counter first: ', counter);
+instance.on('increment', () => {
+  counter++;
+}); // counter should be 0
+instance.trigger('increment', 1); // counter should be 1
+console.log('counter after trigger once: ', counter);
+instance.trigger('increment', 2, 4);
+console.log('counter after trigger twice: ', counter);
+*/
 
 module.exports = EventEmitter;
