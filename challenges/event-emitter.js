@@ -30,7 +30,6 @@ EventEmitter.prototype.on = function(funcName, func) {
   // Goal is for this.events to look like {funcName: [func,...]}
   if (this.events.hasOwnProperty(funcName)) {
     this.events[funcName].push(func);
-    console.log(`this.events: ${this.events}`);
   } else {
     this.events[funcName] = [func];
   }
