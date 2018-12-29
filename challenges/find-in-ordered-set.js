@@ -29,6 +29,7 @@ function findInOrderedSet(arr, target) {
     }
     track += 1;
   }
+  return false;
 }
 
 console.log(findInOrderedSet(nums, 4));
