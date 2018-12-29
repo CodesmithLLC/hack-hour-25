@@ -22,15 +22,19 @@
  */
 
 function EventEmitter() {
-
+  const listeners = []
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
+  if (! listeners.hasOwnProperty(funcName)) {
+    listeners.funcName = [];
+  }
+  listeners[funcName].push(func)
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+  if (! listeners.hasOwnProperty(funcName)) return undefined
+  listeners[funcName](...args)
 };
 
 module.exports = EventEmitter;
