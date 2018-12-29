@@ -9,10 +9,30 @@ findInOrderedSet(nums, 2);  -> false
 
  */
 
-
+// Binary Search
 function findInOrderedSet(arr, target) {
+  let minIndex = 0;
+  let maxIndex = arr.length - 1;
+  let currentIndex;
+  let currentElement;
 
+  while (minIndex <= maxIndex) {
+    currentIndex = (minIndex + maxIndex) / 2;
+    currentElement = arr[currentIndex];
+
+    if (currentElement < target) {
+      minIndex = currentIndex + 1;
+    } else if (currentElement > target) {
+      maxIndex = currentIndex - 1;
+    } else {
+      return true;
+    }
+  }
+  return false;
 }
 
+const nums = [1, 4, 6, 7, 9, 17, 45]
+console.log(findInOrderedSet(nums, 4)); // -> true
+console.log(findInOrderedSet(nums, 2)); // -> false
 
 module.exports = findInOrderedSet;
