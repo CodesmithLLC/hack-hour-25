@@ -12,10 +12,23 @@ var nums = [1, 4, 6, 7, 9, 17, 45]
 
 
 
+// function findInOrderedSet(arr, target) {
+//     if(arr === 0) return 0;
+    
+//     return arr.some(num => num === target)
+
+
+// }
+
+
 function findInOrderedSet(arr, target) {
     if(arr === 0) return 0;
+    let count = 0;
+    while(count < arr.length ) {
+        if(arr[count] === )
+    }
+
     
-    return arr.some(num => num === target)
 }
 
 console.log(findInOrderedSet(nums, 4)) //true
