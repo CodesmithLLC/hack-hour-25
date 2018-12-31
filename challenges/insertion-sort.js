@@ -14,7 +14,7 @@ function insertionSort(array) {
   return array;
 }
 
-//SOLUTION 1
+// SOLUTION 1
 // Worst case : O(n^2)
 // Best case: already sorted O(n)
 
