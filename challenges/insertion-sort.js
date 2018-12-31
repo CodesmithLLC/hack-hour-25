@@ -20,7 +20,7 @@ function insertionSort(array) {
       } else break;
     }
   }
-  // console.log(array);
+  return array;
 }
 
 module.exports = insertionSort;
