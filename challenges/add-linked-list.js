@@ -17,8 +17,30 @@ function Node(val) {
   this.next = null;
 }
 
-function addLinkedList(l1, l2) {
+// Node.prototype.prev = null;
 
+function addLinkedList(l1, l2) {
+  let val = l1.value + l2.value
+  //create a new LL
+  const l3 = new Node(val)
+  let nextVal;
+  let temp = false;
+  while (l1 && l2) {
+    let strNum = (l1.next + l2.next).toString();
+    if (strNum.length > 1) {
+      nextVal = Number(strNum[strNum.length - 1]);
+      temp = true;
+    } else {
+      (temp === true) ? (nextVal = l1.next + l2.next + 1) : (nextVal = l1.next + l2.next)
+      temp = false;
+    }
+    l3.next = nextVal;
+    l1 = l1.next;
+    l2 = l2.next;
+    l3 = l3.next;
+  }
+  //return new LL
+  return l3;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};

@@ -13,34 +13,19 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-  // let highestProfit = 0;
-  //iterate thru the array;
-  // for (let i = 0 ; i = stock_prices_yesterday.length; i += 1){
-  //   for (let j = 1; j = stock_prices_yesterday.length; j += 1){
-  //     if (stock_prices_yesterday[j] > stock_prices_yesterday[i]){
-  //       highestProfit = stock_prices_yesterday[j] - stock_prices_yesterday[i];
-  //     }
-  //   }
-  // }  
-  // return highestProfit;
-  let sortedArr = stock_prices_yesterday.slice().sort(function(a, b) {
-    return b - a;
-  });
-
-  if (sortedArr[0] === stock_prices_yesterday[0]) return 0;
-
-  return stock_prices_yesterday.reduce((acc, price, i) => {
-    let highestProfit = 0;
-    let nextPrice = stock_prices_yesterday[i + 1];
-    if (nextPrice === null) return acc;
-    if ((nextPrice > price) && acc < (nextPrice - price)) {
-      acc = nextPrice - price;
-      if (highestProfit > acc) highestProfit = acc;
-    } 
-    return acc;
-  }, 0);
-}
+  let highestProfit = 0;
+  let lowestI = 0;
+  for (let i = 0 ; i < stock_prices_yesterday.length; i += 1){
+    if (stock_prices_yesterday[i] < stock_prices_yesterday[lowestI]){
+      lowestI = i;
+    }
+    let currProfit = stock_prices_yesterday[i] - stock_prices_yesterday[lowestI]
+    if (currProfit > highestProfit){
+      highestProfit = currProfit
+    }
+    return highestProfit
+  }
 
 console.log(bestProfit([200, 300, 300, 700]));
 
-module.exports = bestProfit;
+module.exports = bestProfit
