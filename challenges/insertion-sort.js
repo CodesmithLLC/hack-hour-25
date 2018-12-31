@@ -13,6 +13,7 @@ function insertionSort(array) {
       arr[j + 1] = key;
     }
   }
+  return array.
 }
 
 let arr = [1, 3, 2];
