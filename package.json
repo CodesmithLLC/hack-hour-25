@@ -29,5 +29,8 @@
     "type": "git",
     "url": "git+https://github.com/CodesmithLLC/hack-hour-25.git"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
 }
