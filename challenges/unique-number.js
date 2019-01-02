@@ -10,7 +10,11 @@
  *
  */
 function uniqueNumber(array) {
-
+  return Object.keys(array.reduce((accum, curr) => {
+    if (accum[curr]) delete accum[curr];
+    else accum[curr] = 1;
+    return accum;
+  }, {}))[0];
 }
 
 module.exports = uniqueNumber;
