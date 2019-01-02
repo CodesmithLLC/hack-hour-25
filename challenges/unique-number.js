@@ -10,7 +10,16 @@
  *
  */
 function uniqueNumber(array) {
-
+  let hash = {};
+  for (let i = 0; i < array.length; i += 1) {
+      if (!hash.hasOwnProperty(array[i])) {
+          hash[array[i]] = 1
+      }
+      else { hash[array[i]] += 1 } 
+  }
+  for (let key in array) {
+      if (array[key] === 1) return array[key]
+  }
 }
 
 module.exports = uniqueNumber;
