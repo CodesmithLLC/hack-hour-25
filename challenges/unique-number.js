@@ -10,7 +10,13 @@
  *
  */
 function uniqueNumber(array) {
-
+  const obj = array.reduce((acc, num) => {
+    if (!acc[num]) acc[num] = 1;
+    else delete acc[num];
+    return acc
+  }, {})
+  return Object.keys(obj)[0];
 }
 
+console.log(uniqueNumber([1,2,1,3,3]))
 module.exports = uniqueNumber;
