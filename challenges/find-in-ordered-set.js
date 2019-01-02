@@ -22,11 +22,14 @@ var nums = [1, 4, 6, 7, 9, 17, 45]
 
 
 function findInOrderedSet(arr, target) {
-    if(arr === 0) return 0;
-    let count = 0;
-    while(count < arr.length ) {
-        if(arr[count] === )
-    }
+//    delcare a start 
+// delcare  a middle
+// delact a end 
+// iterate over array - 
+let start = 0;
+let end = arr.length -1;
+l
+
 
     
 }
