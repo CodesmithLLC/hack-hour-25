@@ -11,9 +11,20 @@
  */
 
 
-
 function deleteDups(head) {
-
+  const exists = {};
+  let LL = head;
+  let prev = LL;
+  while(LL){
+    if(exists[head.value]){
+      prev.next = LL.next;
+      LL=prev;
+    }
+    exists[head.value] = 1;
+    prev = LL;
+    LL=LL.next;
+  }
+  return LL;
 }
 
 module.exports = deleteDups;

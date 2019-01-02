@@ -12,17 +12,18 @@ function countTwos(num) {
   let count = 0;
   for (let i = 0; i < num; i += 1) {
     let butt = i.toString();
-      butt.split("")
-      .forEach(el => {
-        if (el === "2") {
-          count += 1;
-        }
-      });
+    butt.split("").forEach(el => {
+      if (el === "2") {
+        count += 1;
+      }
+    });
   }
   return count;
 }
+// function betterCountTwos(num){
+//   let num = 
 
-console.log(countTwos(11420));
+// }
 
 
 
