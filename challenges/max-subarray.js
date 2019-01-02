@@ -8,7 +8,17 @@
  */
 
 function maxSubarray(arr) {
-
+  let currMax = Number.NEGATIVE_INFINITY;
+  let totalMax = Number.NEGATIVE_INFINITY;
+  for (let i = 0; i < arr.length; i += 1) {
+    currMax = Math.max(arr[i], currMax + arr[i]);
+    totalMax = Math.max(totalMax, currMax);
+  }
+  return totalMax;
 }
 
+console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]))
 module.exports = maxSubarray;
+
+// max += arr[i];
+// if (total < max) total = max;
