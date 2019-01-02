@@ -10,7 +10,10 @@
  *
  */
 function uniqueNumber(array) {
-
+  // filter array looking for a unique value
+  // Need to get zeroth element assuming only
+  // one unique number present
+  return array.filter(val => array.indexOf(val) === array.lastIndexOf(val))[0];
 }
 
 module.exports = uniqueNumber;
