@@ -39,6 +39,7 @@ const l2 = new Node('A');
 l2.next = new Node('B');
 l2.next.next = new Node('C');
 
-console.log(l2);
+const zipped = zip(l1, l2)
+
 
 module.exports = {Node: Node, zip: zip};

@@ -7,7 +7,7 @@ function insertionSort(array) {
   let count = 0;
   let temp;
   while (count < array.length) {
-    for (var i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
       if (array[i] > array[i + 1]) {
         temp = array[i];
         array[i] = array[i + 1];
@@ -19,5 +19,7 @@ function insertionSort(array) {
   }
   return array;
 }
+
+console.log(insertionSort(arr));
 
 module.exports = insertionSort;
