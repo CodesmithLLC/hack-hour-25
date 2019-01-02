@@ -19,8 +19,16 @@ function repeatNumbers(array) {
   },-Infinity)
 }
 
+//alternative sexy method O(1)space
+//add all together, find the sum of 1...n
+//leftover is the answer waow
+function betterRepeatNumbers(arr){
+  let output = arr.reduce((a,b)=>a+b);
+  return output - (arr[arr.length-1]/2)*(arr[0]+arr[arr.length-1]);
+}
 
-// const arr = [1,2,3,4,5,6,7,8,8,9];
-// console.log(repeatNumbers(arr))
+
+const arr = [1,2,3,4,5,6,7,8,9];
+console.log(betterRepeatNumbers(arr));
 
 module.exports = repeatNumbers;

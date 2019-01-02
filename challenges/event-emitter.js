@@ -21,16 +21,30 @@
  * - It is not necessary to write a way to remove listeners.
  */
 
-function EventEmitter() {
+class EventEmitter{
+  constructor(){
+    //contains arrays of functions that should be called when funcName is called
+    this.events={};
+  }
 
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
+  //if it doesnt exist inside of events, give it an array and push in the function
+  if(!this.events[funcName]){
+    this.event[funcName]=[]
+  }
+  this.events[funcName].push(func);
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+  // triggers all functions in event array in order when appropriate funcName is called
+  const event = this.events[funcName];
+  if(event){
+    event.forEach(func){
+      func.call(...args);
+    }
+  }
 };
 
 module.exports = EventEmitter;

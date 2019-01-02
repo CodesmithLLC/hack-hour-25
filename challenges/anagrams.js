@@ -7,13 +7,36 @@
  */
 
 /**
-  * example:
-  * var result = anagrams('abc');
-  * console.log(result); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
-  */
+ * example:
+ * var result = anagrams('abc');
+ * console.log(result); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
+ */
 
-function anagrams(string) {
+function anagrams(data,counter = 0){
+  //conversion to array
+  let dat = data;
+  if (typeof dat === "string") {
+    dat = dat.split("");
+  }
+  const outputData = dat;
 
+  //counter for base case
+  const newCounter = counter+=1;
+  if (newCounter > dat.length - 1) {
+    return dat;
+  }
+
+  // recursion
+  const output = [];
+  for (let i = 0; i < dat.length; i += 1) {
+    outputData[counter]=dat[i]
+    output.push(anagrams(outputData,newCounter))
+  }
+
+  //return
+  return output;
 }
+
+console.log(anagrams('str'))
 
 module.exports = anagrams;
