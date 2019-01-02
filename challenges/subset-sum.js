@@ -11,9 +11,7 @@
 function subsetSum(array, target, index = 0) {
   if (target === 0) return true;
   if (index === array.length) return false;
-  return subsetSum(array, target - array[index], index + 1) || subsetSum(array, target, index + 1);
+  return subsetSum(array, target - array[index], index += 1) || subsetSum(array, target, index += 1);
 }
-
-console.log(subsetSum([1,2,3], 1));
 
 module.exports = subsetSum;
