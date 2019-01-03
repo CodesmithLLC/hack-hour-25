@@ -10,7 +10,26 @@
  */
 
 function getAllProducts(array) {
-
+  let hasZero = false;
+  const total = array.reduce((a, b) => {
+    if (b === 0) {
+      hasZero = true;
+      return a;
+    }
+    return a * b;
+  }, 1);
+  return array.map(el => {
+    if (hasZero) {
+      return el === 0 ? total : 0;
+    }
+    return total / el;
+  });
 }
+
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 0];
+
+console.log(getAllProducts(arr));
+console.log(getAllProducts(arr2));
 
 module.exports = getAllProducts;
