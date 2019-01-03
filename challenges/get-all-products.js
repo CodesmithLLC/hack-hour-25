@@ -10,7 +10,27 @@
  */
 
 function getAllProducts(array) {
-
+  const allCombos = getAllCombos(array);
+  const filterCombos = allCombos.filter(combo => combo.length === array.length - 1);
+  for (let i = 0; i < filterCombos.length; i += 1) {
+    filterCombos[i] = filterCombos[i].reduce((accum, curr) => accum * curr);
+  }
+  const filterDups = [...new Set(filterCombos)];
+  return filterDups;
 }
+
+function getAllCombos(array, result = [[]], index = 0) {
+  if (index === array.length) { return result; }
+  const shallow = [];
+  for (let i = 0; i < result.length; i += 1) {
+    shallow[i] = result[i].slice();
+    shallow[i].push(array[index]);
+  }
+  for (let i = 0; i < shallow.length; i += 1) {
+    if (!result.includes(shallow[i])) { result.push(shallow[i]); }
+  }
+  return getAllCombos(array, result, index + 1);
+}
+
 
 module.exports = getAllProducts;
