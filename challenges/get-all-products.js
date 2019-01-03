@@ -11,6 +11,8 @@
 
 // Version 1
 function getAllProducts(array) {
+  // Return an array with zero if the array is empty
+  if (array.length === 0) return [0];
   // Declare output array
   const output = [];
   // Iterate through array (outer)
