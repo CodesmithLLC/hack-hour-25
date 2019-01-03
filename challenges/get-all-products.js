@@ -9,7 +9,8 @@
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
 
-function getAllProducts(array) {
+function getAllProducts(array) { 
+  if (array.length === 0) return [];
   const result = [];
   for (let i = 0; i < array.length; i += 1) {
     let workingArr = array.slice()
@@ -23,6 +24,19 @@ function getAllProducts(array) {
   return result;
 }
 
-console.log(getAllProducts([1, 7, 3, 4]));
+// function getAllProducts(array) {
+//   const result = [];
+//   const pairResult = {};
+//   for (let i = 0; i < array.length; i += 2) {
+//     pairResult[i] = array[i] * array[i+1];
+//     console.log('pairResult is ', pairResult);
+//     let outputNum = 1;
+//     for (let key in pairResult) {
+
+//   }
+//   return result;
+// }
+
+// console.log(getAllProducts([1, 2, 3, 4])); // 24, 12, 8, 6;
 
 module.exports = getAllProducts;
