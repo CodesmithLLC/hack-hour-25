@@ -10,6 +10,9 @@
  */
 
 function getAllProducts(array, pointer = 0, products = []) {
+  // Edge Case: when empty array return zero
+  if (array.length === 0) return [0];
+
   // Base Case: when pointer equals array.length
   if (pointer === array.length) return products;
 
