@@ -9,8 +9,14 @@
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
 
-function getAllProducts(array) {
+// straight ahead es6 solution
 
+function getAllProducts(array) {
+  return array.map( (c, i, a) => a.reduce((acc, c2, i2) => {
+    return (acc * (i !== i2 ? c2: 1))
+  }, 1) )  
 }
+
+// memory solution
 
 module.exports = getAllProducts;
