@@ -10,7 +10,23 @@
  */
 
 function getAllProducts(array) {
-
+// we have an array of numbers, we want to return the product of all other numbers than the current
+// first we declare a product array
+let productArr = [];
+let copyArr = array.slice();
+// we need to iterate through the array
+for (let i = 0; i < copyArr.length; i += 1) {
+// at each number, let a new array = to the array with the current number spliced out
+    copyArr.splice(i, 1);
+// iterate through that array and multiply every number
+    const product = copyArr.reduce((accum, curr) => {return accum * curr}, 1)
+// put the product into the product array
+    productArr.push(product);
+    copyArr = array.slice()
+}
+// return prodcut array
+return productArr;
 }
 
+console.log(getAllProducts([1, 7, 3, 4]))
 module.exports = getAllProducts;
