@@ -11,7 +11,8 @@
 
 function getAllProducts(array) {
 // we have an array of numbers, we want to return the product of all other numbers than the current
-// first we declare a product array
+// first we declare a product array'
+if (array.length === 0) {return [0]}
 let productArr = [];
 let copyArr = array.slice();
 // we need to iterate through the array
