@@ -9,8 +9,23 @@
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
 
-function getAllProducts(array) {
+//input: array of nums
+//output: array of products
 
+function getAllProducts(array) {
+  // create array to store results
+  const arr = [];
+  // iterate thru array
+  for (let i = 0; i < array.length; i += 1) {
+    for (let j = 1; j < array.length; j += 1) {
+      let temp
+      arr.push(array[i] * array[j] * array[x]);
+    }
+  }
+  return arr;
 }
+
+console.log(getAllProducts([1, 7, 3, 4])) // -> [84, 12, 28, 21]
+
 
 module.exports = getAllProducts;
