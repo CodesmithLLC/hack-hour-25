@@ -10,7 +10,14 @@
  *
  */
 function uniqueNumber(array) {
-
+  const max = Math.ceil(array.length / 2);
+  const expectedSum = max * (max + 1);
+  let realSum = 0;
+  for (let i = 0; i < array.length; i += 1) {
+    realSum += array[i];
+  }
+  return expectedSum - realSum;
 }
+
 
 module.exports = uniqueNumber;
