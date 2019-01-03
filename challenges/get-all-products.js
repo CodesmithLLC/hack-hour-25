@@ -10,13 +10,16 @@
  */
 
 function getAllProducts(array) {
+	if (array.length === 0) return [0];
 	let product = 1; 
-	let isZero = false;
+	let isZero = 0;
 	let result = new Set();
 	const count = {};
-	array.forEach(num => (num === 0) ? isZero = true : product *= num);
-	(isZero) ? result = [0, product] : array.map(num => result.add(product / num));
+	array.forEach(num => (num === 0) ? isZero += 1 : product *= num);
+	(isZero !== 0) ? result = ((isZero === array.length) ? [0] : [0, product]) : array.map(num => result.add(product / num));
 	return [...result];
 }
 
 module.exports = getAllProducts;
+
+// console.log(getAllProducts([0, 0, 0]))
