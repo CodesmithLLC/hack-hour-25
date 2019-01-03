@@ -9,8 +9,17 @@
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
 
-function getAllProducts(array) {
+function getAllProducts(array, pointer = 0, products = []) {
+  // Base Case: when pointer equals array.length
+  if (pointer === array.length) return products;
 
+  // Calculate product for all values except value at pointer in array
+  products.push(array.reduce((accum, val, index) => {
+    if (index !== pointer) accum *= val;
+    return accum;
+  }, 1));
+
+  return getAllProducts(array, pointer + 1, products);
 }
 
 module.exports = getAllProducts;
