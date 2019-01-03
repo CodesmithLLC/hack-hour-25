@@ -19,6 +19,6 @@ function uniqueNumber(array) {
     }
 }
 
-console.log(uniqueNumber([7,2,7,3,3,2,1]));// -> 2
+console.log(uniqueNumber([7,2,7,3,5,3,1,2,1]));// -> 2
 
 module.exports = uniqueNumber;
