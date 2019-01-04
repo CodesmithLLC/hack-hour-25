@@ -10,6 +10,10 @@
  */
 
 function getAllProducts(array) {
+  // if empty return 0
+  if (array.length === 0) {
+    return [0];
+  }
   // empty array to return later
   const returnArr = [];
   for (let i = 0; i < array.length; i += 1) {
