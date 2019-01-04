@@ -30,6 +30,6 @@ function getAllProducts(array) {
   return result;
 }
 
-console.log(getAllProducts([1, 7, 3, 4, 0, 0]))
+console.log(getAllProducts([2, 3, 4]))
 
 module.exports = getAllProducts;

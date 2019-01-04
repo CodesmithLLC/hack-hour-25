@@ -23,7 +23,23 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
-
+  // keep track of circles start is in
+  // keep track of circles end is in
+  // the number of circles not in each other's array is the num of border crossings
+  const startCircles = [];
+  const endCircles = [];
+  function isCoordInCircle(centerX, centerY, radius, coordX, coordY) {
+    const xLen = coordX - centerX;
+    const yLen = coordY - centerY;
+    return radius * radius >= xLen * xLen + yLen * yLen;
+  }
+  for (let i = 0; i < x.length; i += 1) {
+    if (isCoordInCircle(x[i], y[i], r[i], start_x, start_y)) startCircles.push(i);
+    if (isCoordInCircle(x[i], y[i], r[i], end_x, end_y)) endCircles.push(i);
+  }
+  const startUnique = startCircles.filter(num => !endCircles.includes(num));
+  const endUnique = endCircles.filter(num => !startCircles.includes(num));
+  return startUnique.length + endUnique.length;
 }
 
 module.exports = circleCountry;
