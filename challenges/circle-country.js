@@ -23,7 +23,19 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  let borders = 0;
+  for (let i = 0; i < x.length; i += 1) {
+    const start = distance(start_x, start_y, x[i], y[i], r[i]);
+    const end = distance(end_x, end_y, x[i], y[i], r[i]);
+    if (start !== end) borders += 1;
+  }
+  return borders;
+}
 
+function inOrOut(pointx, pointy, circx, circy, r) {
+  const distance = Math.sqrt(((pointx - circx) ** 2) + ((pointy - circy) ** 2));
+  if (distance > r) return 'out';
+  return 'in';
 }
 
 module.exports = circleCountry;
