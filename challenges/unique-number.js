@@ -16,9 +16,8 @@ function uniqueNumber(array) {
   array.forEach(num => {
     !set.has(num) ? set.add(num) : set.delete(num);
   })
-  const iterator = set.values();
 
-  return iterator.next().value;
+  return set.values().next().value;
 }
 
 
