@@ -13,7 +13,7 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-
+    console.log(tree.this.value)
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
