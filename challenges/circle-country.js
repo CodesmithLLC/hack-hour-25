@@ -23,7 +23,26 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  //not perfect, using calculated squares instead of circles
+  const checkArr = {};
 
+  for (let i = 0 ; i < x.length ; i += 1){
+    //find radius if start_x + start_y was the circle edge
+    const dist =Math.hypot(x[i] - start_x, y[i] - start_y);
+    //if the dist is less than the radius, that means it lies within the circle
+    if(dist < r[i]){
+      //remove duplicates
+      checkArr[i] = checkArr[i] ? 0 : 1;
+    }
+  }
+  const output = Object.values(checkArr).reduce((a, b) => a + b);
+  return output;
 }
+
+x = [30,20,40,20,20]
+y = [30,20,40,40,50]
+r = [1000, 3,3,3,3]
+
+console.log(circleCountry(x,y,r,20,20,40,40))
 
 module.exports = circleCountry;
