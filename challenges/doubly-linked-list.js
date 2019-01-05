@@ -24,20 +24,21 @@ LinkedList.prototype.add = function(val) {
   };
   current.next = newNode;
   newNode.prev = current;
-  this.tail = newNode
+  this.tail = newNode;
+  return this.head;
 };
 
 /*
 Removes the first node with the inputted value
  */
 LinkedList.prototype.remove = function(val) {
-  if (this.head.val === val) {this.head = this.head.next; return}
+  if (this.head.val === val) {this.head = this.head.next; return this.head}
   let prev = this.head;
   let current = prev.next;
   while (current.val) {
     if (current.val === val) {
       this.prev.next = current.next;
-      return;
+      return this.head;
     };
     prev = prev.next;
     current = current.next;
