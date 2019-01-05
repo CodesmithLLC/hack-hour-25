@@ -60,5 +60,5 @@ module.exports = LinkedList;
 
 // ll.add(one);
 // ll.add(two);
-
+//
 // console.log(ll)
