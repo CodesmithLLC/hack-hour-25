@@ -9,6 +9,8 @@
  * Complete the challenge in O(1) space
  *
  */
+
+// 
 // function uniqueNumber(array) {
 //   const output = {};
 //   for (let i = 0; i < array.length; i += 1) {
@@ -20,17 +22,13 @@
 // }
 
 function uniqueNumber(array) {
-  // eslint-disable-next-line prefer-destructuring
   const { length } = array;
   let res = array[0];
   for (let i = 1; i < length; i += 1) {
-    console.log(res, array[i]);
-    console.log(res ^ array[i]);
     res = res ^ array[i]; 
   }
   return res;
 }
-
 
 console.log(uniqueNumber([1, 2, 1, 3, 3])); // Returns 2
 
