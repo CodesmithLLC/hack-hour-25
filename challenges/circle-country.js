@@ -25,9 +25,9 @@
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
   let borders = 0;
 
-  function inOrOut(pointx, pointy, circx, circy, r) {
+  function inOrOut(pointx, pointy, circx, circy, radius) {
     const distance = Math.sqrt(((pointx - circx) ** 2) + ((pointy - circy) ** 2));
-    if (distance > r) return 'out';
+    if (distance > radius) return 'out';
     return 'in';
   }
 
