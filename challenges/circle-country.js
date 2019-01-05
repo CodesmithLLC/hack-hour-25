@@ -23,7 +23,14 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  const isDistLessRadius = (cx, cy, px, py, radius) => {
+    return ( ( (cx-px)*(cx-px) + (cy-py)*(cy-py) ) < radius * radius)
+  }
 
+  const isInBoth = r.reduce((acc, c, i, a) => {
+    return acc + ( isDistLessRadius(x[i], y[i], start_x, start_y, r[i]) ^ isDistLessRadius(x[i], y[i], end_x, end_y, r[i]) )
+  }, 0)
+  return isInBoth
 }
 
 module.exports = circleCountry;
