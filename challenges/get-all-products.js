@@ -12,14 +12,12 @@
 function getAllProducts(array) { 
   if (array.length === 0) return [];
   const result = [];
+  let product = 1;
   for (let i = 0; i < array.length; i += 1) {
-    let workingArr = array.slice()
-    workingArr.splice(i, 1);
-    let outputNum = workingArr.reduce((acc, num) => {
-      acc *= num;
-      return acc;
-    })
-    result.push(outputNum);
+    for (let j = 0; j < array.length; j += 1) {
+      if (j !== i) product *= array[j]
+    }
+    result.push(product);
   }
   return result;
 }
@@ -32,7 +30,6 @@ function getAllProducts(array) {
 //     console.log('pairResult is ', pairResult);
 //     let outputNum = 1;
 //     for (let key in pairResult) {
-
 //   }
 //   return result;
 // }
