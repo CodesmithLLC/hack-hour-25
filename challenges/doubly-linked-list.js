@@ -23,6 +23,7 @@ LinkedList.prototype.add = function(val) {
     this.tail = newNode;
   } else {
     this.tail.next = newNode;
+    newNode.prev = this.tail;
     this.tail = newNode;
   }
 };
@@ -37,10 +38,13 @@ LinkedList.prototype.remove = function(val) {
     if (curr.val === val) {
       if (curr === this.head) {
         this.head = curr.next;
+        this.head.prev = null;
       } else if (curr === this.tail) {
+        this.tail.prev = null;
         prev.next = null;
         this.tail = prev;
       } else {
+        curr.next.prev = prev;
         prev.next = curr.next;
       }
       return;
