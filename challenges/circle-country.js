@@ -23,14 +23,8 @@
  */
 
 function circleCountry(x, y, r, startX, startY, endX, endY) {
-  let traverseDistrictCounter = 0
-  // x increases move right, x decreases move left
-  // y increases move up, y decreases move down
-  const right = (endX >= startX);
-  const down = (endY >= startY);
-  // Determine slope
-  const slope = ((startY - endY) / (startX - endX));
-
+  console.log('Begin');
+  let traverseDistrictCounter = 0;
   // iterate thru district arrays
   for (let i = 0; i < r.length; i += 1) {
     // Using pythagorean theorem calculate distance from district center to start(x,y)
@@ -43,14 +37,18 @@ function circleCountry(x, y, r, startX, startY, endX, endY) {
     const endDiffY = endY - y[i];
     const endDistance = Math.sqrt((endDiffX * endDiffX) + (endDiffY * endDiffY));
 
-    if (startDistance <= r[i] || endDistance <= r[i]) traverseDistrictCounter += 1;
     // if end or start distance <= radius of district increment traverseDistrictCounter
-    // console.log(`startDistance: ${startDistance}, endDistance: ${endDistance}`);
-    // console.log(`radius: ${r[i]}, traverseDistrictCounter: ${traverseDistrictCounter}`);
+    // if both start and end points <= radius, no borders need to be crossed
+    if ((startDistance <= r[i] && endDistance > r[i])
+      || (endDistance <= r[i] && startDistance > r[i])) traverseDistrictCounter += 1;
+
+    console.log(`startDistance: ${startDistance}, endDistance: ${endDistance}`);
+    console.log(`radius: ${r[i]}, traverseDistrictCounter: ${traverseDistrictCounter}`);
 
     // ?? Check if using a straight line between start and end points if any space between districts
     // Using slope determine if any points between start and end fall into other districts
   }
+  console.log('End');
   return traverseDistrictCounter;
 }
 
