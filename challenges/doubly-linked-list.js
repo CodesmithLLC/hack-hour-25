@@ -66,6 +66,7 @@ LinkedList.prototype.remove = function (val) {
         // Set current.next.prev to current.prev
         currentNode.next.prev = currentNode.prev;
       }
+      return;
     }
     currentNode = currentNode.next;
   }
