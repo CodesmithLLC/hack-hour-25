@@ -11,7 +11,14 @@
 
 
 function mergeRanges(array) {
-
+  // return array
+  const returnArr = [];
+  // array to check the range of the numbers
+  const rangeCheck = [];
+  // loop through the array
+  for (let i = 0; i < array.length; i += 1) {
+    
+  }
 }
 
 module.exports = mergeRanges;
