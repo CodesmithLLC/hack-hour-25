@@ -11,7 +11,30 @@
 
 
 function mergeRanges(array) {
+  const result = [];
 
+  // Edge Case - Empty Array
+  if (!array || array.length === 0) return result;
+
+  // Sort Array
+  array.sort((a, b) => a[0] - b[0]);
+
+  // Initialize result with lowest range
+  result.push(array[0]);
+
+  // iterate array
+  for (let i = 0; i < array.length; i += 1) {
+    const curRange = array[i];
+    const lastRange = result[result.length - 1];
+    if (curRange[0] <= lastRange[1]) {
+      // update if match
+      if (curRange[1] > lastRange[1]) lastRange[1] = curRange[1]; 
+    } else {
+      // add if not match
+      result.push(curRange);
+    }
+  }
+  return result;
 }
 
 module.exports = mergeRanges;
