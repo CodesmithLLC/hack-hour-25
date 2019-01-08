@@ -66,7 +66,7 @@ function mergeRanges(array) {
   return output
 }
 
-var times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]
+var times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10], [2, 11]]
 console.log(mergeRanges(times))//; -> [[0, 1], [3, 8], [9, 12]]
 
 module.exports = mergeRanges;
