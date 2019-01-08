@@ -36,9 +36,10 @@ function mergeRanges(array) {
       } else if (newStart < oldStart && newEnd > oldEnd) {
         result[i] = currTime;
         break;
+      } else if (newStart > oldStart && newEnd < oldEnd) {
+        break;
       }
     }
-    console.log('result: ', result);
   }
   return result;
 }
