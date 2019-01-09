@@ -11,7 +11,23 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-
+    let count = 0;
+    let newArr = []
+    let position = str.split("");
+    position = [position[1], position[3]]
+    let moves = [[-1, -2], [-1, 2], [1, -2], [1, 2], [-2, -1], [-2, 1], [2, -1], [2, 1]]
+    for (let i = 0; i < moves.length; i += 1) {
+        let current = position.slice()
+        current = [(parseInt(current[0], 10) + moves[i][0]), (parseInt(current[1], 10) + moves[i][1])]
+        if (current[0] >= 1 && current[0] <= 8 && current[1] >= 1 && current[1] <= 8) {
+            if (!newArr.includes(current)) {
+                // console.log(current)
+                newArr.push(current);
+                count += 1
+            }
+        }
+    }
+    return count
 }
 
-module.exports = knightjumps;
+console.log(knightjumps("(2 5)"))
