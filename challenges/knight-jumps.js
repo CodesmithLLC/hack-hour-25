@@ -11,7 +11,26 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  const nums = str.replace(/[^0-9]/g, '');
+  const numArr = nums.split('')
+  const x = Number(numArr[0]);
+  let xScore = 0;
+  const y = Number(numArr[1]);
+  let yScore = 0;
+  const board = {
+    1: [1, 8],
+    2: [2, 7],
+    4: [3, 4, 5, 6],
+  };
+  for (let key in board) {
+    if (board[key].includes(x)) xScore += Number(key);
+    if (board[key].includes(y)) yScore += Number(key);
+  }
+  return xScore + yScore;
 
 }
+
+console.log(knightjumps('(6 2)'))
+
 
 module.exports = knightjumps;
