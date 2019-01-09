@@ -11,7 +11,16 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-
+  let position = str.match(/\d/g).map(num => Number(num));
+  let possibilities = 0;
+  const moves = [[1, 2], [2, 1], [2, -1], [1, -2], [-1, -2], [-2, -1], [-2, 1], [-1, 2]];
+  for (let i = 0; i < moves.length; i += 1) {
+    const newPosition = [position[0] + moves[i][0], position[1] + moves[i][1]];
+    if (newPosition[0] >= 1 && newPosition[0] <= 8 && newPosition[1] >= 1 && newPosition[1] <= 8) {
+      possibilities += 1;
+    }
+  }
+  return possibilities;
 }
 
 module.exports = knightjumps;
