@@ -21,11 +21,12 @@ function knightjumps(str) {
   possibleMoves.push([xStart - 2, yStart - 1]);
   possibleMoves.push([yStart + 2, xStart + 1]);
   possibleMoves.push([yStart + 2, xStart - 1]);
-  possibleMoves.push([yStart + 2, xStart + 1]);
-  possibleMoves.push([yStart + 2, xStart - 1]);
+  possibleMoves.push([yStart - 2, xStart + 1]);
+  possibleMoves.push([yStart - 2, xStart - 1]);
   possibleMoves.forEach((move) => {
     if (move[0] <= 8 && move[1] <= 8) validMoves += 1;
   });
+  console.log(possibleMoves);
   return validMoves;
 }
 
