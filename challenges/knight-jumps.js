@@ -23,13 +23,13 @@ function knightjumps(str) {
   possibleMoves.push([yStart + 2, xStart - 1]);
   possibleMoves.push([yStart - 2, xStart + 1]);
   possibleMoves.push([yStart - 2, xStart - 1]);
+  // console.log('possibleMoves: ', possibleMoves);
   possibleMoves.forEach((move) => {
-    if (move[0] <= 8 && move[1] <= 8) validMoves += 1;
+    if (move[0] <= 8 && move[1] <= 8 && move[0] >= 1 && move[1] >= 1) validMoves += 1;
   });
-  console.log(possibleMoves);
   return validMoves;
 }
 
-console.log(knightjumps('(8 8)'));
+// console.log(knightjumps('(1 1)'));
 
 module.exports = knightjumps;
