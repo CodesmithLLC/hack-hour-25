@@ -11,7 +11,15 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-
+  // turn string into 2 variables for x and y
+  const xy = str.split('');
+  const x = xy[1];
+  const y = xy[3];
+  // cache to store all moves
+  const moves = {};
+  // add in the first coordinates from argument
+  moves[x + y] = 1;
+  // x or y can be either +/-1 or +/-3
 }
 
 module.exports = knightjumps;
