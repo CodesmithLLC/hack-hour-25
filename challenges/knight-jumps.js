@@ -35,5 +35,5 @@ function knightjumps(str) {
     return accum;
   },0);
 }
-e
+
 module.exports = knightjumps;
