@@ -47,8 +47,9 @@ function generateRow(array) {
 }
 
 function pascalTriangle(numRows, count = 2, output = [[1],[1,1]]) {
-  if (count === numRows) return output;
+  if (numRows < 1) return
   if (numRows === 1) return output[0];
+  if (count === numRows) return output;
   if (count < numRows) {
     output.push(generateRow(output[output.length - 1]))
     return pascalTriangle(numRows, count + 1, output)
