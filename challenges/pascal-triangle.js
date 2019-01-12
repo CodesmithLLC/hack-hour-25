@@ -36,7 +36,7 @@ function pascalTriangle(numRows) {
   // Declare an array of arrays with an initial subarray of 1
   const triangleArray = [[1]];
   // Iterate n number of times
-  for (let i = 0; i < numRows - 2; i += 1) {
+  for (let i = 0; i < numRows - 1; i += 1) {
     // Declare a temp array
     const tempArray = [];
     // Declare a variable for the current subarray
@@ -45,9 +45,7 @@ function pascalTriangle(numRows) {
     for (let j = 0; j < subArray.length; j += 1) {
       // If index 0, push value to the temp array
       if (j === 0) tempArray.push(subArray[j]);
-      // If index 0 and index 0 + 1 equals undefined, push value to the temp array
-      if (j === 0 && subArray[j + 1] === undefined) tempArray.push(subArray[j] + subArray[j]);
-      // If index + 1 not equal to undefined, and index and index + 1 and push result to the temp array
+      // If index + 1 not equal to undefined, and index and index + 1 and push to the temp array
       if (subArray[j + 1] !== undefined) tempArray.push(subArray[j] + subArray[j + 1]);
       // If index + 1 equals undefined, push value to the temp array
       if (subArray[j + 1] === undefined) tempArray.push(subArray[j]);
