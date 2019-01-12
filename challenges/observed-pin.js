@@ -43,8 +43,34 @@ expectations = {
 
 
 function getPINs(observed) {
-
+  function adjacents(num) {
+    let results;
+    if (num === 1 || num === 4 || num === 7) {
+      results = [num, num + 1, num + 3, num - 3].filter(index => index >= 1 && index <= 9);
+    }
+    if (num === 2 || num === 5 || num === 8) {
+      results = [num, num + 1, num - 1, num + 3, num - 3];
+      for (let i = 0; i < results.length; i += 1) {
+        if (results[i] === 11) results[i] = 0;
+      }
+      results = results.filter(index => index >= 0 && index <= 9);
+    }
+    if (num === 3 || num === 6 || num === 9) {
+      results = [num, num - 1, num + 3, num - 3].filter(index => index >= 1 && index <= 9);
+    }
+    if (num === 0) results = [0, 8];
+    return results;
+  }
+  const keys = observed.toString().split('').map(index => Number(index)).map(num => adjacents(num));
+  const combos = [];
+  for (let i = 0; i < keys.length; i += 1) {
+    let possibility = [];
+    for (let j = 0; j < )
+  }
+  
 }
 
+
+console.log(getPINs(1234));
 
 module.exports = getPINs
