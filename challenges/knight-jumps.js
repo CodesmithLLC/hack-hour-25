@@ -11,7 +11,27 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  // Declare a variable to track the number of possible moves
+  let totalMoves = 0;
+  // Declare an array of arrays of possible moves
+  const possibleMoves = [-2, 1, -2, -1, 2, 1, 2, -1, 1, 2, -1, 2, 1, -2, -1, -2];
+  // Split string into an array removing parens
+  const values = str.replace(/[{()}]/g, '').split(' ');
+  const x = Number(values[0]);
+  const y = Number(values[1]);
+  // Iterate through moves array
+  for (let i = 0; i < possibleMoves.length; i += 2) {
+    if (x + possibleMoves[i] > 0 && y + possibleMoves[i + 1] > 0
+      && x + possibleMoves[i] < 9 && y + possibleMoves[i + 1] < 9) {
+      totalMoves += 1;
+    }
+  }
 
+  // Return moves
+  return totalMoves;
 }
+
+const str = '(4 5)';
+console.log(knightjumps(str));
 
 module.exports = knightjumps;
