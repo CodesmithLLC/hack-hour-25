@@ -15,9 +15,23 @@
  */
 
 function countStairs(n) {
-  if (n === 0) return 1;
-  if (n === 1) return 1;
-  return countStairs(n - 1) + countStairs(n - 2);
+  const memo = [1, 1];
+
+  function innerCount(n) {
+    if (n === 0) return memo[0];
+    if (n === 1) return memo[1];
+    if (!memo[n]) {
+      memo[n] = innerCount(n - 1) + innerCount(n - 2);
+    }
+    return memo[n]; 
+  }
+  return innerCount(n)
 }
+
+// function countStairs(n) {
+//   if (n === 0) return 1;
+//   if (n === 1) return 1;
+//   return countStairs(n - 1) + countStairs(n - 2);
+// }
 
 module.exports = countStairs;
