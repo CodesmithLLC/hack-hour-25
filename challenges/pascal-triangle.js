@@ -32,6 +32,7 @@
   ]
 */
 
+// Brute force approach
 function pascalTriangle(numRows) {
   // Declare an array of arrays with an initial subarray of 1
   const triangleArray = [[1]];
