@@ -1,3 +1,4 @@
+/* eslint-disable quote-props */
 /*
 Alright, detective, one of our colleagues successfully observed our target person, Robby the robber. 
 We followed him to a secret warehouse, where we assume to find all the stolen stuff. The door to 
@@ -39,12 +40,27 @@ expectations = {
 
 */
 
-
-
-
+/**
+ *
+ * @param {string} observed - A string of the possible PIN
+ * @return {array} - An array containing strings of all possible PINs
+ */
 function getPINs(observed) {
-
+  // Declare an object to store the variantions for each number
+  const variations = {
+    '1': ['1', '2', '4'],
+    '2': ['1', '2', '3', '5'],
+    '3': ['2', '3', '6'],
+    '4': ['1', '4', '5', '7'],
+    '5': ['2', '4', '5', '6', '8'],
+    '6': ['3', '5', '6', '9'],
+    '7': ['4', '7', '8'],
+    '8': ['5', '7', '8', '9', '0'],
+    '9': ['6', '8', '9'],
+    '0': ['8'],
+  };
 }
 
+console.log(getPINs(8)); // Returns ["5", "7", "8", "9", "0"]
 
 module.exports = getPINs
