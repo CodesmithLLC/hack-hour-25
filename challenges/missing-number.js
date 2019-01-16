@@ -25,7 +25,22 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
+function missingNum(array) {
+  // declare variable that contains last number
+  const last = Math.max(...array);
+  // declare a variable
+  let sum = 0;
+  // iterate through 1 to last number and add into declared variable
+  for (let i = 1; i <= last; i += 1) {
+    sum = sum + i
+  }
+  // iterate through the array and subtract from the declared variable
+  for (let j = 0; j < array.length; j += 1) {
+    sum = sum - array[j]
+  }
+  // return declared variable
+  return sum
 }
 
+console.log(missingNum([2,3,1,5]))
 module.exports = missingNum;
