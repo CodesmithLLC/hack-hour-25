@@ -19,6 +19,23 @@
  * BONUS: Account for suits and add in Flush & Straight Flush/Royal Flush.
  * BONUS2: Create a deck of cards function that generates two random hands for you.
  */
+
+function findHand(hand) {
+  // check if 4 of a kind
+  const sortedHand = [...hand].sort();
+  const set = new Set(hand);
+  const maxCard = Math.max(sortedHand);
+  if (set.length === 2) {
+    // 4 of a kind
+    if (sortedHand[0] !== sortedHand[1] || sortedHand[3] !== sortedHand[4]) return [7, maxCard];
+    // full house
+    return [6, maxCard];
+  }
+  if (set.length === 3) {
+    if (sortedHand[0] === sortedHand[0])
+  }
+}
+
 function poker(hand1, hand2) {
 
 }

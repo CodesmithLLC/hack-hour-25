@@ -22,7 +22,12 @@ function countStairs(n) {
 }
 
 function countStairs2(n) {
-
+  const vals = {
+    0: 1,
+    1: 1,
+    2: 2,
+  };
+  
 }
 
 console.log(countStairs(5));
