@@ -25,7 +25,16 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
-}
+function missingNum(array) {
+  let expected = 0;
+  let actual = 0;
+  for (let i = 0; i <= array.length + 1; i += 1) {
+    expected += i;
+    if (array[i]) actual += array[i];
+  }
+  return expected - actual;
+};
 
+const test = [2, 3, 4, 5];
+console.log(missingNum(test))
 module.exports = missingNum;
