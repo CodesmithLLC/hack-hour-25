@@ -27,10 +27,10 @@ Challange:
 */
 function missingNum(Array) {
   let missing=0;
-  let count = Array[Array.length-1]
-
-  // console.log(count)
-  for(let i = 1; i < count; i += 1) {
+  // let count = Array[Array.length-1]
+let max = Math.max(...Array);
+console.log(max)
+  for(let i = 0; i < max; i += 1) {
     // console.log(i)
     if(Array.indexOf(i) ===-1)
     missing += i;
@@ -44,4 +44,5 @@ function missingNum(Array) {
 
 // console.log(lastNumber)
 console.log(missingNum([2,3,1,5]));
+console.log(missingNum([2,14,15,3,1,5,13,11,12,6,4,7,9,10,]));
 module.exports = missingNum;
