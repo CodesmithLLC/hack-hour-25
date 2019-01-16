@@ -26,6 +26,22 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
+  // create object to store occurences
+  const obj = {};
+  // iterate thru array
+  for (let i = 0; i < Array.length; i += 1) {
+    // if el doesn't exist on obj, add it to obj as property and value to true
+    if (!obj[Array[i]]) obj[Array[i]] = true;
+  }
+  // create keys array from obj
+  const keys = Object.keys(obj);
+  // iterate thru obj keys
+  for (let x = 0; x < keys.length; x += 1) {
+    let numKey = Number(keys[x]);
+    let addKey = numKey + 1;
+    // if key + 1 doesn't exist in obj, return key + 1
+    if (!obj[addKey]) return addKey;
+  }
 }
 
 module.exports = missingNum;
