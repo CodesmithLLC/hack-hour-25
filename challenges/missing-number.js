@@ -21,11 +21,18 @@ Assume that:
 expected worst-case time complexity is O(N);
 expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).
 
-Challange: 
+Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
+
+
 function missingNum(Array) {
+  const length = Array.length + 1;
+  const expected = length * (1 + length) / 2;
+  const actual = Array.reduce((a, b) => a + b);
+  return (expected - actual);
+
 }
 
 module.exports = missingNum;
