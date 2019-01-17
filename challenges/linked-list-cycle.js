@@ -27,13 +27,37 @@
  *
  */
 
-var Node = function(value) {
+var Node = function (value) {
   this.value = value;
   this.next = null;
 }
 
 function hasCycle(head) {
+  let curr = head;
+  let curr2 = head.next;
 
+  while (curr & curr2) {
+    if (curr === curr2) return true;
+    if (!curr2.next) {
+      curr2 = head;
+    } else if (!curr.next) {
+      curr = head;
+    } else {
+      curr = curr.next;
+      curr2 = curr2.next;
+    }
+  }
+  return false;
 }
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+var node1 = new Node('A');
+var node2 = node1.next = new Node('B');
+var node3 = node2.next = new Node('C');
+var node4 = node3.next = new Node('D');
+var node5 = node4.next = new Node('E');
+
+// console.log(hasCycle(node1)); // => false
+node5.next = node2;
+console.log(hasCycle(node1)); // => true
+
+module.exports = { Node: Node, hasCycle: hasCycle }
