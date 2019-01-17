@@ -33,7 +33,8 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
-  if (!head) return;
+  if (!head) return false;
+  if (!head.next) return false;
 
   let currentNode = head;
   let pointer = head.next.next;
