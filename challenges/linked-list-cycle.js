@@ -33,6 +33,7 @@ const Node = function (value) {
 };
 
 function hasCycle(head) {
+  if (!head) return false;
   let curr = head;
   const nodes = [curr];
   while (curr.next) {
