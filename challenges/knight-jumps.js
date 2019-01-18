@@ -11,7 +11,29 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-
+    function knightjumps(str) {
+        const x = 1 * str[1]; // another way to parse integers
+        const y = 1 * str[3];
+      
+        let spaces = 0;
+        if (x - 1 >= 1) {
+          if (y - 2 > 0) spaces++;
+          if (y + 2 < 9) spaces++;
+        }
+        if (x - 2 >= 1) {
+          if (y - 1 > 0) spaces++;
+          if (y + 1 < 9) spaces++;
+        }
+        if (x + 1 <= 8) {
+          if (y - 2 > 0) spaces++;
+          if (y + 2 < 9) spaces++;
+        }
+        if (x + 2 <= 8) {
+          if (y - 1 > 0) spaces++;
+          if (y + 1 < 9) spaces++;
+        }
+        return spaces;
+      }
 }
 
 module.exports = knightjumps;
