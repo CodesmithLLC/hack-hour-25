@@ -10,7 +10,12 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
-
+  // create highest variable to store current value
+  let maxValue = 0;
+  let currWeight = 0;
+  // iterate thru items array
+  
+    // 
 };
 
 module.exports = solveKnapsack;
