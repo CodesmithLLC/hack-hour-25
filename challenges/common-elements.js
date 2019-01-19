@@ -13,7 +13,12 @@
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
 function commonElements(array1, array2, array3, array4){
-
+  let newArr = [];
+  for (let i = 0; i < array1.length; i += 1) {
+    if (newArr.indexOf(array1[i]) < 0 && array2.indexOf(array1[i]) >= 0 && array3.indexOf(array1[i]) >= 0 && array4.indexOf(array1[i]) >= 0) {newArr.push(array1[i])}
+  }
+  if (newArr.length === 0) return 'Nothing in Common!'
+  return newArr
 }
-
+console.log(commonElements([1,4,6,7,'ferret',12,12,99,2000,'dog','dog',99,1000],[15,9,9,'ferret',9,26,12,12,'dog'],[23,12,12,77,'ferret',9,88,100,'dog'],['ferret',12,12,45,9,66,77,78,2000]))
 module.exports = commonElements;

@@ -10,7 +10,11 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
-
+  let max;
+  let weight = weightAvailable;
+  for (let i = 0; i < items.length; i += 1) {
+    if (weight - items
+      )
 };
 
 module.exports = solveKnapsack;
