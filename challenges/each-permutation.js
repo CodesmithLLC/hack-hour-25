@@ -21,9 +21,12 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
-
+// we want to iterate through the arr
+// create a empty arr
+// iterate through again
 }
 
 
 
 module.exports = eachPermutation;
+  
