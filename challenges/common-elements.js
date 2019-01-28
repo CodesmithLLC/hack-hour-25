@@ -29,6 +29,8 @@ function commonElements(array1, array2, array3, array4) {
   const result = [...set4];
   return result.length === 0 ? 'Nothing in Common!' : result;
 }
-
-console.log(commonElements(array1, array2, array3, array4));
+// const obj = { a: 1, b: 2 };
+// const arr = ['hello', 'hello'];
+// const set1 = new Set(arr);
+// set1.add('hello');
 module.exports = commonElements;
