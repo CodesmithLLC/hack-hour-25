@@ -4,7 +4,7 @@
  *      at any given node, the value of all the nodes in its right tree must be > its value
  * Assume that each value in the tree is unique.
  */
- 
+
 
 function BinaryTree(val) {
     this.value = val;
@@ -13,24 +13,27 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
+  const array = [];
 
-  const output = [];
+  tree.depthFirstIn((val) => array.push(val));
 
-  depthFirstIn(output.push(this.value))
-
-  for (let i = 1; i < output.length; i++) {
-    if (output[i - 1] > output[i]) {
-      return false;
+  for (let i = 1; i < array.length; i++) {
+    if (array[i - 1] > array[i]) {
+      return fail;
     }
   }
   return true;
 }
 
-
 BinaryTree.prototype.depthFirstIn = function(callback) {
-  if (this.left) this.left.depthFirstIn(callback);
-  callback(this.value)
-  if (this.right) this.right.depthFirstIn(callback);
+  if (this.left !== null) this.left.depthFirstIn(callback);
+  callback(this.value);
+  if (this.right !== null) this.right.depthFirstIn(callback)
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
+
+
+
+
+
