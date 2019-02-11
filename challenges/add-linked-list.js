@@ -17,38 +17,70 @@ function Node(val) {
   this.next = null;
 }
 
+// function addLinkedList(l1, l2) {
+//   let digits = [];
+//   while (l1 || l2) {
+//     if (!l1) l1 = new Node(0);
+//     if (!l2) l2 = new Node(0);
+//     digits.push(l1.value + l2.value);
+//     l1 = l1.next;
+//     l2 = l2.next;
+//   }
+//   for (let i = 0; i < digits.length; i += 1) {
+//     if (digits[i] >= 10) {
+//       digits[i] -= 10;
+//       if (!digits[i + 1]) {
+//         digits[i + 1] = 0;
+//       }
+//       digits[i + 1] += 1;
+//     }
+//   }
+//   let beginning;
+//   let prev;
+//   let curr;
+//   for (let i = 0; i < digits.length; i += 1) {
+//     if (i === 0) {
+//       beginning = new Node(digits[i]);
+//       prev = beginning;
+//     } else {
+//       curr = new Node(digits[i]);
+//       prev.next = curr;
+//       prev = curr;
+//     }
+//   }
+//   return beginning;
+// }
+
 function addLinkedList(l1, l2) {
-  let digits = [];
-  while (l1 || l2) {
-    if (!l1) l1 = new Node(0);
-    if (!l2) l2 = new Node(0);
-    digits.push(l1.value + l2.value);
-    l1 = l1.next;
-    l2 = l2.next;
+  let current1 = l1;
+  let current2 = l2;
+  const values = [];
+  while (current1 || current2) {
+    if (!current1) {
+      current1 = new Node(0);
+    }
+    if (!current2) {
+      current2 = new Node(0);
+    }
+    values.push(current1.value + current2.value);
+    current1 = current1.next;
+    current2 = current2.next;
   }
-  for (let i = 0; i < digits.length; i += 1) {
-    if (digits[i] >= 10) {
-      digits[i] -= 10;
-      if (!digits[i + 1]) {
-        digits[i + 1] = 0;
+  for (let i = 0; i < values.length; i += 1) {
+    if (values[i] >= 10) {
+      values[i] -= 10;
+      if (values[i + 1]) {
+        values[i + 1] += 1;
+      } else {
+        values[i + 1] = 1;
       }
-      digits[i + 1] += 1;
     }
+    values[i] = new Node(values[i]);
   }
-  let beginning;
-  let prev;
-  let curr;
-  for (let i = 0; i < digits.length; i += 1) {
-    if (i === 0) {
-      beginning = new Node(digits[i]);
-      prev = beginning;
-    } else {
-      curr = new Node(digits[i]);
-      prev.next = curr;
-      prev = curr;
-    }
+  for (let i = 0; i < values.length - 1; i += 1) {
+    values[i].next = values[i + 1];
   }
-  return beginning;
+  return values[0];
 }
 
 // const a = new Node(9);
