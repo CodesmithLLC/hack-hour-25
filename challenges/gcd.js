@@ -8,8 +8,8 @@
  */
 
 function gcd(a, b) {
-    let result = 0;
-    let output = [];
+    // let result = 0;
+    // let output = [];
     /**
      * delcare array 
      * iterate over 10 % 2
@@ -21,17 +21,29 @@ function gcd(a, b) {
      * mutiply each elelment in the array 
      * return that output
      */
-    for (let i = a; i > 1; i -= 1) {
-        console.log(i % 2)
-        for (let j = b; b > 1; j -= 1) {
-            //    if(i%2===0 && j%2===0 ){
-
-            //    }
-        }
-    }
+   // edge cases
+  if (isNaN(a) || isNaN(b)) return;
+  // find min and max
+  let min = Math.min(a, b);
+  let max = min === a ? b : a;
+  // checking if the min is the gcd
+  if (max % min === 0) return min;
+  // loop based on half of min, decrement
+  for (let i = Math.ceil(min / 2); i > 1; i--) {
+    // check if i can be divided into both a and b
+    if (a % i === 0 && b % i === 0) return i;
+  }
+  return 1;
 
 
 };
+
+// euclidian algorithm
+function gcd(a, b) {
+    if (b === 0) return a;
+    return gcd(b, a % b);
+  }
+  
 
 console.log(gcd(10, 8))//2;
 

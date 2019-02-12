@@ -34,13 +34,22 @@
 
 function pascalTriangle(numRows) {
 
-  let arr = [];
-let row = ; 
-  for(let i = 1; i < ;  i += 1){
+  if (numRows < 1) return [];
 
-    console.log(i)
+  let triangle = [[1]];
+  let row;
+
+  for(let i = 0; i < numRows-1;  i += 1){
+    row = [1]
+    for(let k = 1; k < triangle[i].length; k += 1) {
+      row[k] = triangle[i][k] + triangle[i][k-1]
+    }
+    row.push(1);
+    triangle.push(row)
   }
+
+  return triangle;
 }
 
 module.exports = pascalTriangle;
-console.log(pascalTriangle(2));
+console.log(pascalTriangle(8));

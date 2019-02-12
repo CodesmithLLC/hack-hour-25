@@ -55,7 +55,7 @@ let double = new LinkedList();
 double.add(8)
 double.add(1)
 double.add(2)
-console.log(JSON.stringify(double.head))
+console.log(double)
 
 module.exports = LinkedList;
 
