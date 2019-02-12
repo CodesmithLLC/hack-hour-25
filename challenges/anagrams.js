@@ -13,7 +13,7 @@
   */
 
 function anagrams(str) {
-  if (str.length === 1) {
+  if (str.length <= 1) {
     return [str];
   }
   const allAnagrams = [];
