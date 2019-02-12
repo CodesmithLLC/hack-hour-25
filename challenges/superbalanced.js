@@ -12,30 +12,37 @@ function BinaryTree(value) {
   this.left = null;
   this.right = null;
 }
+// const superBalanced = rootNode => {
+//   //implement DFS
+//   const stack = [{node: rootNode, depth: 0}];
+//   const endLeafDepths = [];
+
+//   while (stack.length) {
+//     // const value = stack.pop();
+//     // const currNode = value.node;
+//     // const depth = value.depth;
+//     const { node: currNode, depth } = stack.pop();
+//     if (!currNode.left && !currNode.right) {
+//       if (endLeafDepths.indexOf(depth) < 0)
+//         endLeafDepths.push(depth);
+//         if (endLeafDepths.length > 2 || endLeafDepths.length === 2 && Math.abs(endLeafDepths[0] - endLeafDepths[1]) > 1){
+//           return false;
+//         }
+//     } else {
+//       if (currNode.right) {
+//         stack.push({node: currNode.right, depth: depth+1});
+//       }
+//       if (currNode.left) {
+//         stack.push({node: currNode.left, depth: depth+1});
+//       }
+//     } 
+//   }
+//   return true;
+// }
+
 
 function superbalanced(root) {
-  var Util = {
-
-    getHeight: function (root) {
-      if (root === null) { // Base case
-        return 0;
-      }
-      return Math.max(Util.getHeight(root.left), Util.getHeight(root.right)) + 1;
-    },
-
-    isBalanced: function (root) {
-      if (root === null) { // Base case
-        return true;
-      }
-      var heightDifference = Math.abs(Util.getHeight(root.left) - Util.getHeight(root.right));
-      if (heightDifference > 1) {
-        return false;
-      } else {
-        return Util.isBalanced(root.left) && Util.isBalanced(root.right);
-      }
-    }
-
-  };
+  
 
 }
 

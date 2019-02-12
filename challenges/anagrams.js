@@ -18,6 +18,7 @@ function anagrams(string) {
   let arr = []
   // console.log(tail)
   //iterate through string
+  while()
   for (let i = 1; i < string.length; i += 1) {
     // swap 
     let temp = string[head]
