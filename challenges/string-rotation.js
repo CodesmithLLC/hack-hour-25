@@ -16,7 +16,17 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+  // check if the length of the string are not the same 
+  if (s1.length !== s2.length) return false;
+  // delcare a new string to add s1 to s1
+  // pass the new string into the helper function to check 
+  let addS1 = s1 + s1;
+  return isSubstring(addS1, s2);
 }
 
-module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
+module.exports = { isSubstring: isSubstring, stringRotation: stringRotation };
+
+console.log(stringRotation("hello", "hello"))
+console.log(stringRotation("hello", "llohe"));
+console.log(stringRotation("hello", "he"));
+console.log(stringRotation("hello", "ollhe"));

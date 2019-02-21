@@ -5,9 +5,18 @@
 // write a function that will find the sum of all the multiples of 3 or 5
 // below 1000 and return that sum.
 
-function sumMultiples3Or5Below1000() {
-  let sum = 0;
+function sumMultiples3Or5Below1000(num) {
 
+  let sum = 0;
+  let array = []
+  for (let i = num; i > 0; i -= 1) {
+
+    if (i % 3 === 0 || i % 5 === 0) {
+
+      // console.log(i)
+      sum += i
+    }
+  }
   return sum;
 }
 
@@ -17,9 +26,14 @@ function sumMultiples3Or5Below1000() {
 function sumMultiplesXOrYBelowZ(x, y, z) {
   let sum = 0;
 
+  for (let i = z; i > 0; i -= 1) {
+    i % x === 0 || i % y === 0 ? sum += i : 0
+  }
+
   return sum;
 }
-
+console.log(sumMultiples3Or5Below1000(999));
+console.log(sumMultiplesXOrYBelowZ(20, 10, 52));
 const objectToExport = {
   sumMultiples3Or5Below1000,
   sumMultiplesXOrYBelowZ,

@@ -10,6 +10,7 @@
  */
 
 function getAllProducts(array) {
+    
 
 }
 

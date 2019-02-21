@@ -22,6 +22,7 @@
  */
 
 function EventEmitter() {
+this.event = {};
 
 }
 

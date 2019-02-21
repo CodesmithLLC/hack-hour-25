@@ -11,7 +11,15 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+    // GET RID OF THE THE WHITESPACES AND CHARACTER
+    const string = str.match(/[A-Z,a-z]+/g) || [];
+
+
+    // 
+    //  
+
 
 }
+console.log(matchWord('__END_DNE-----'));
 
 module.exports = matchWord;

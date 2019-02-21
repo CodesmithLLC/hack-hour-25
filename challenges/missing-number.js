@@ -26,6 +26,23 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
+  let missing=0;
+  // let count = Array[Array.length-1]
+let max = Math.max(...Array);
+// console.log(max)
+  for(let i = 0; i < max; i += 1) {
+    // console.log(i)
+    if(Array.indexOf(i) ===-1)
+    missing += i;
+  }
+  return missing;
 }
 
+// var numbers = [0,1,3,4,5,7,8]; // Missing 2,6
+// var lastNumber = numbers.length - 1;
+
+
+// console.log(lastNumber)
+console.log(missingNum([2,3,1,5,4,7]));
+console.log(missingNum([2,14,15,3,1,5,13,11,12,6,4,7,9,10,]));
 module.exports = missingNum;

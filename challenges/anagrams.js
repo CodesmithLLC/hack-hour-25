@@ -13,7 +13,21 @@
   */
 
 function anagrams(string) {
+  let head = 0; //delcare a varible 
+  let tail = string.length - 1;
+  let arr = []
+  // console.log(tail)
+  //iterate through string
+  while()
+  for (let i = 1; i < string.length; i += 1) {
+    // swap 
+    let temp = string[head]
+
+
+  }
 
 }
 
 module.exports = anagrams;
+
+console.log(anagrams('abc'));

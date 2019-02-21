@@ -13,8 +13,24 @@ function Node(value) {
     this.next = null;
 }
 
-function reverseLinkedList(head) {
+function reverseLinkedList(head, parent) {
+    // delcare a placeholder
+    // let result = parent || {};
+    // // check if head exist
+    // if(head === null)
+    // if (head) {
+    //     // if true: delcare new node and set it equal to the next node 
 
+    //     let child = head.next;
+    //     // let head.next equal to parent 
+    //     head.next = parent
+    //     result = reverseLinkedList(child, head)
+    // }
+    // return result;
+
+
+
+    
 }
 
-module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
+module.exports = { Node: Node, reverseLinkedList: reverseLinkedList };

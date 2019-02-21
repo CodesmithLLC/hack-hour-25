@@ -10,7 +10,26 @@
 
 
 function countTwos(num) {
+    // iterate over number 
+    // 
 
+    let count = 0;
+    for (let i = 1; i <= num; i += 1) {
+        let strNum = ''
+        strNum += i;
+        // console.log(typeof strNum)
+        for (let y = 0; y < strNum.length; y += 1) {
+            // console.log(strNum[y])
+            if (strNum[y] === '2') {
+                count += 1
+                // console.log('count' + count + strNum[y])
+            }
+        }
+        // console.log(strNum)
+
+
+    }
+    return count;
 }
-
+console.log(countTwos(1));
 module.exports = countTwos;

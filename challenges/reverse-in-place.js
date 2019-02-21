@@ -14,7 +14,41 @@
  */
 
 function reverseInPlace(array) {
+    //delcare varible to track the head 
+    //  delcare a varible to track the tail
+    // iterate over array 
+    // assign head with tail 
+    // assign tail with head and 
+    // increment both head and tail
+    // return array 
 
+    let head = 0;
+    let tail = array.length - 1;
+
+
+    while (head < tail) {
+
+        let temp = array[head];
+
+        array[head++] = array[tail]
+        array[tail--] = temp;
+
+        // console.log(array[tail])
+
+    }
+    return array;
+
+    // for (let i = 0, j = array.length - 1; i < j; i += 1, j -= 1) {
+    //     let temp = array[i];
+    //     let tempJ = array[j];
+    //     console.log(tempJ)
+    //     temp = tempJ;
+    //     tempJ = temp;
+
+    // }
+    // return array;
 }
 
 module.exports = reverseInPlace;
+
+console.log(reverseInPlace(['s', 't', 'a', 'r']));

@@ -13,7 +13,10 @@
  */
 
 function numToWords(num) {
+    let numbers = [
+        'zero',
 
+    ]
 }
 
 module.exports = numToWords;
