@@ -25,32 +25,19 @@
  */
 
 function balancedParens(input) {
-  let pars = [];
-  let bracks = [];
-  let curls = [];
-  if (input.charAt(0) === ')' || input.charAt(0) === ']' || input.charAt(0) === '}') return false;
+  const map = { ')': '(', '}': '{', ']': '[' };
+  const history = [];
   for (let i = 0; i < input.length; i += 1) {
-    if (input.charAt(i) === '(') pars.push(i);
-    else if (input.charAt(i) === '[') bracks.push(i);
-    else if (input.charAt(i) === '{') curls.push(i);
-    else if (input.charAt(i) === ')') {
-      let index = pars.pop();
-      if (Math.max(...bracks) > index || Math.max(...curls) > index) return false;
+    if (Object.values(map).includes(input[i])) {
+      history.push(input[i]);
     }
-    else if (input.charAt(i) === ']') {
-      let index = bracks.pop();
-      if (Math.max(...pars) > index || Math.max(...curls) > index) return false;
-    }
-    else if (input.charAt(i) === '}') {
-      let index = curls.pop();
-      if (Math.max(...pars) > index || Math.max(...bracks) > index) return false;
+    if (Object.keys(map).includes(input[i])) {
+      if (map[input[i]] === history[history.length - 1]) {
+        history.pop();
+      } else return false;
     }
   }
-  if (pars.length > 0 || bracks.length > 0 || curls.length > 0) return false;
-  return true;
-  
+  return history.length === 0;
 }
-
-
 
 module.exports = balancedParens;
