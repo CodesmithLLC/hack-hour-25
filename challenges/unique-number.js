@@ -9,15 +9,30 @@
  * Complete the challenge in O(1) space
  *
  */
-function uniqueNumber(array) {
-    let value;
-    for(let i = 0; i <array.length; i +=1 ){
+// function uniqueNumber(array) {
+//     let value;
+//     for(let i = 0; i <array.length; i +=1 ){
         
-        if(array.indexOf(array[i])===array.lastIndexOf(array[i])){
-            return array[i]
-        }
+//         if(array.indexOf(array[i])===array.lastIndexOf(array[i])){
+//             value = array[i]
+//         }
+//     }
+//     return value;
+// }
+
+function uniqueNumber(array) {
+    var store = {};
+    
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] in store) {
+        delete store[array[i]];
+      } else {
+        store[array[i]] = true;
+      }
     }
-}
+    
+    return Object.keys(store)[0];
+  }
 
 console.log(uniqueNumber([7,2,7,3,5,3,1,2,1]));// -> 2
 

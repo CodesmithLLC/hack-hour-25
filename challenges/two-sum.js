@@ -19,7 +19,7 @@ function twoSum(arr, n) {
     let output = false;
 
     for (let i = 0; i < arr.length; i += 1) {
-        for (let j = 0; j < arr.length; j += 1) {
+        for (let j = i + 1; j < arr.length; j += 1) {
             // console.log(arr[i] + arr[j])
             if (arr[i] + arr[j] === n) {
                 output = true;
