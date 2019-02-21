@@ -32,7 +32,7 @@
   ]
 */
 
-function pascalTriangle(numRows) {
+function pascalTriangle(n, triangle) {ff
 
   if (numRows < 1) return [];
 
@@ -50,6 +50,7 @@ function pascalTriangle(numRows) {
 
   return triangle;
 }
+
 // Recursive
 // function pascalTriangle(n, triangle) {
 //   if (!n || n < 1) return [];
